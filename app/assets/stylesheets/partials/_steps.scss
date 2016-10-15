@@ -1,0 +1,125 @@
+$step-indicator-size: 1.5rem;
+$step-indicator-font-size: 0.875rem;
+$step-indicator-font-family: 'Numbers Greenback A', 'Numbers Greenback B';
+$step-indicator-font-weight: 400;
+$inactive-step-color: #eee;
+
+ul.step-indicator-container {
+  @extend .flex-display;
+  counter-reset: step;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+li.step-indicator {
+  @extend .flex-display;
+  @extend .flex-align-items-center;
+  @extend .flex-direction-column;
+  @include flex(1);
+  position: relative;
+}
+
+li.step-indicator:before {
+  @extend .flex-display;
+  @extend .flex-justify-content-center;
+  @include transition(all 0.5s);
+  font-family: $step-indicator-font-family;
+  font-weight: $step-indicator-font-weight;
+  font-size: $step-indicator-font-size;
+
+  content: counter(step);
+  counter-increment: step;
+  border-radius: 50%;
+  border: 4px solid $inactive-step-color;
+  background-color: $white;
+  width: $step-indicator-size;
+  line-height: $step-indicator-size;
+  margin: 0 auto 15px auto;
+  // super important
+  z-index: 1;
+}
+
+// Active and completed have different color to standard
+li.step-indicator.active:before, li.step-indicator.completed:before { border-color: $main-accent }
+
+// Completed is totally filled in
+li.step-indicator.completed:before {
+  background-color: $main-accent;
+  color: $white;
+}
+
+// Draw the line connecting the circles
+li.step-indicator:after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  top: 22%;
+  left: -50%;
+  background-color: $inactive-step-color;
+  position: absolute;
+  @include transition(all 0.5s);
+}
+
+// Override the color of the connecting lines
+li.step-indicator.active:after, li.step-indicator.completed:after {
+  background-color: $main-accent;
+}
+
+// No line on the first element
+li.step-indicator:first-child:after {
+  content: none;
+}
+
+// Vertical Steps
+ul.vertical-step-indicator-container {
+  @extend .step-indicator-container;
+  @extend .flex-direction-column;
+  @extend .flex-display-inline;
+  margin-bottom: 0;
+}
+
+li.vertical-step-indicator {
+  @extend .step-indicator;
+  @extend .flex-direction-row;
+  @include flex-basis(3rem);
+}
+
+li.vertical-step-indicator:before {
+  @extend .step-indicator:before;
+  margin: 0;
+
+  // super important
+  z-index: 1;
+}
+
+// Active and completed have different color to standard
+li.vertical-step-indicator.active:before, li.vertical-step-indicator.completed:before {
+  @extend li.vertical-step-indicator.active:before, li.vertical-step-indicator.completed:before;
+}
+
+// Completed is totally filled in
+li.vertical-step-indicator.completed:before {
+  background-color: $main-accent;
+  color: $white;
+}
+
+// Draw the line connecting the circles
+li.vertical-step-indicator:after {
+  @extend .step-indicator:after;
+  width: rem(3);
+  height: 100%;
+  top: -75%;
+//  Width / 2 - (width of line /2)
+//  left: 0.9125rem;
+  left: 1rem - rem(1.5)
+}
+
+// Override the color of the connecting lines
+li.vertical-step-indicator.active:after, li.vertical-step-indicator.completed:after {
+  background-color: $main-accent;
+}
+
+// No line on the first element
+li.vertical-step-indicator:first-child:after {
+  content: none;
+}

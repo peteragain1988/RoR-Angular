@@ -1,0 +1,153 @@
+$input-height: 40px;
+$text-color: #666;
+
+legend {
+  font-family: 'Gotham SSm A', 'Gotham SSm B';
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 1.1em
+}
+
+input[type=submit] {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+.field {
+  margin-bottom: rem(10);
+
+//  label > #{$all-text-inputs}, textarea, select { margin-top: 0.5rem }
+
+  #{$all-text-inputs}, textarea, select {
+
+    background-color: #fefefe;
+    width: 100%;
+    font-size: 1em;
+    border: 1px solid #dedede;
+    padding: 10px 10px;
+    border-radius: $radius-amount;
+    color: #4f4f4f;
+  }
+
+  label {
+    margin-bottom: 0.9em;
+    color: #555;
+    font-size: 0.8em;
+    font-family: $form-label-font-family;
+    font-weight: 500;
+  }
+
+  select {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    @include user-select(none);
+    text-overflow: '';
+    text-indent: 0.1px;
+    padding: 11px 10px;
+    background-repeat: no-repeat;
+    background-position: 97% center;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==");
+    font-family: $form-font-family;
+  }
+
+
+  #{$all-text-inputs}, textarea {
+    font-family: $form-font-family;
+    @include transition(all 300ms ease);
+    line-height: 1.2em;
+
+    &:hover, &:focus {
+      background-color: white
+    }
+
+  }
+
+  label {
+    display: block;
+    font-family: $form-font-family;
+    #{$all-text-inputs}, textarea, select { margin-top: 8px }
+    &.showErrors { color: rgb(246, 64, 80) }
+  }
+
+  &.right {
+    text-align: right
+  }
+}
+
+#{$all-text-inputs}, textarea {
+  &:disabled {
+    background-color: #eee;
+    &:hover {
+      background-color: #eee;
+    }
+  }
+}
+
+
+#{$all-text-inputs}, textarea {
+  &[ng-required], &:required {
+    background: #fff url('/images/red_asterisk.png') no-repeat;
+    background-position: 98% center;
+  }
+
+  &[ng-required].ng-valid, &:required:valid, &:required.ng-valid {
+    background: #fff url('/images/valid.png') no-repeat;
+    box-shadow: 0 0 5px lighten($valid-form-color, 10);
+    background-size: 14px 14px;
+    border-color: $valid-form-color;
+    background-position: 96% center;
+  }
+
+  &[ng-required].ng-invalid.ng-dirty, &:required:invalid.ng-dirty, &:required.ng-dirty.ng-invalid {
+    background: #fff url('/images/invalid.png') no-repeat !important;
+    background-position: 96% center !important;
+    background-size: 14px 14px !important;
+    box-shadow: 0 0 5px lighten($invalid-form-color, 20) !important;
+    border-color: $invalid-form-color !important;
+  }
+}
+form input:required[type=number] {
+  background-position: 90% center !important;
+}
+
+
+input {
+  &:disabled {
+    background-color: #eee;
+    color: #777;
+  }
+}
+
+
+input[type=datetime-local] {
+  &[required] { padding-right: 3rem }
+}
+
+.field {
+
+  label > input[type=file] { display: block; margin-top: 0.8em }
+}
+
+textarea {
+  min-height: 200px;
+}
+
+
+.inline-fields {
+  @extend .flex-display;
+
+  .field {
+    @include flex(1);
+
+    label {
+      text-align: center;
+      input {
+        display: block;
+        margin: 1rem auto;
+//        @extend .margin-horziontal-center;
+      }
+    }
+  }
+}

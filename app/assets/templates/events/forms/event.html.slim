@@ -1,0 +1,38 @@
+.field
+  label
+    |Event Name
+    input(type="text" ng-model="event.data.name" placeholder="Name" required)
+.field
+  label
+    |Event Promoter
+    input(type="text" ng-model="event.data.promoter" placeholder="Promoter")
+.field
+  label
+    |Event Type
+    select(ng-model='event.data.event_type' autofocus)
+      option(value="") Select Event Type
+      option(value="Circus") Circus
+      option(value="Live Event") Live Event
+      option(value="Sports") Sports
+      option(value="Childrens Entertainment") Childrens Entertainment
+      option(value="NRL") NRL
+      option(value="AFL") AFL
+      option(value="Rugby Union") Rugby Union
+      option(value="Ballet") Ballet
+      option(value="Netball") Netball
+      option(value="Soccer") Soccer
+      option(value="Music Concerts") Music Concerts
+      option(value="Classical") Classical
+.field
+  label
+    |Event Status
+    select(ng-model='event.data.status' required)
+      option(value="") Select Event Status
+      option(value="Coming Soon") Coming Soon
+      option(value="Open") Open
+      option(value="Closing Soon") Closing Soon
+      option(value="Closed") Closed
+.field
+  label
+    |Event Description
+    textarea(ng-model="event.data.description" placeholder="Description" required)

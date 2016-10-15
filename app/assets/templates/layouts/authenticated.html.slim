@@ -1,0 +1,10 @@
+#masqueradeToolbar(ng-show="Auth.currentlyMasquerading")
+  a.clickable(ng-click="Auth.stopMasquerading()" tooltip="Stop Masquerading" tooltip-placement="bottom") &times; Masquerading as {{Auth.currentUser.email}}
+#content-outer.container
+   header
+      div.page-title(ui-view="header")
+      div.user-details(ui-view="user-menu")
+   main
+      section#main.animate-fade ui-view='content' ng-class='currentStateCss'
+   nav#mainNav
+      div(ui-view="main-navigation")

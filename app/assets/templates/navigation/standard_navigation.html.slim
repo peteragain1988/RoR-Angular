@@ -1,0 +1,19 @@
+#nav-header
+  img(src='/images/all-phones.png' width='75%' height='auto')
+ul
+  li.title Main
+  li.link(ui-sref="authenticated.main.home" ui-sref-active='active')
+    i.icon-thin-277_dashboard_full_fuel_gauge
+    a Dashboard
+  li.link ui-sref="authenticated.main.event.client.index" active-class-on='authenticated.main.event authenticated.main.inventory'
+    i.icon-thin-231_star_favorite
+    a Events
+  li.link ui-sref="authenticated.main.tickets.index" active-class-on='authenticated.main.tickets'
+    i.icon-thin-376_movie_cinema_ticket
+    a Tickets
+
+ul
+  li.title Auditing
+  li.link ui-sref="authenticated.main.audit.client.index" active-class-on='authenticated.main.audit.client'
+    i.icon-thin-299_drink_cocktail_disco_going_out_shake
+    a My Confirmations

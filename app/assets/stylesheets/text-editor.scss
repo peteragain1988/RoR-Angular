@@ -1,0 +1,70 @@
+.mail-template-panel {
+  @extend .panel;
+  @include span-columns(8);
+  padding: $column / 4;
+//  font-size: 0.9rem;
+}
+
+.mail-template-data-panel {
+  @extend .mail-template-panel;
+  @include span-columns(4);
+  font-size: 0.8rem;
+}
+//
+//.mail-template-preview-panel {
+//  @extend .mail-template-panel;
+//  @include span-columns(5);
+//}
+
+
+
+.ta-root {
+
+}
+
+.mail-template-body {
+  margin: 1rem auto;
+  min-height: 500px;
+  padding: 1rem;
+  &:after {padding: 1rem}
+  &.disabled {
+    background-color: #eee;
+    p {}
+    color: #4f4f4f !important;
+  }
+}
+
+.angular-medium-editor, .mail-template-body {
+  border: 1px solid darken($body-background-color,10);
+  b { font-weight: bold }
+  i { font-style: italic }
+  u { text-decoration: underline }
+  ol, ul { margin-left: 1rem }
+
+  h1, h2, h3, h4, h5, h6, p, td {
+//    font-family: "Helvetica", "Arial", sans-serif;
+    font-weight: normal;
+    padding:0;
+    margin: 0;
+    text-align: left;
+    line-height: 1.3;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    word-break: normal;
+    font-weight: bold;
+  }
+
+  h1 {font-size: 40px;}
+  h2 {font-size: 36px;}
+  h3 {font-size: 32px;}
+  h4 {font-size: 28px;}
+  h5 {font-size: 24px;}
+  h6 {font-size: 20px;}
+
+
+}
+
+.ta-html {
+
+}

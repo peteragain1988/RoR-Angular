@@ -1,0 +1,160 @@
+div.flex-center(ng-if="Options.selectedOptions.selection.menu")
+  div.panel
+    .top-bar
+      .title Selected Menu
+    h1(ng-bind="Options.selectedOptions.selection.menu.name")
+
+div.flex-center
+  div.panel
+    .top-bar
+      .title Additional Beverages
+    table
+      thead
+        tr
+          th Name
+      //th.actions Quantity
+      tbody
+        tr(ng-repeat="item in Options.selectedOptions.selection.drinks")
+          td(ng-bind="item.name")
+    br
+    .top-bar
+      .title Wine, Beer and Pairings
+    table
+      thead
+        tr
+          th Name
+      tbody
+        / Katy Perry 21 - 22 November Menu One
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu One' && Options.katy_21_22")
+          td Matua Estate Lands & Legends Sauvignon Blanc
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu One' && Options.katy_21_22")
+          td Abel’s Tempest Pinot Noir
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu One' && Options.katy_21_22")
+          td Pepperjack Shiraz
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu One' && Options.katy_21_22")
+          td Coldstream Hills Yarra Valley Range Chardonnay
+
+        / Katy Perry 21 - 22 November Menu Two
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Two' && Options.katy_21_22")
+          td T’Gallant Grace Pinot Grigio
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Two' && Options.katy_21_22")
+          td Baileys of Glenrowan Shiraz
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Two' && Options.katy_21_22")
+          td Devil’s Lair The Hidden Cave Chardonnay
+
+        / Katy Perry 24-25 November Menu Three
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Three' && Options.katy_24_25")
+          td Matua Estate Lands & Legends Sauvignon Blanc
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Three' && Options.katy_24_25")
+          td Abel’s Tempest Pinot Noir
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Three' && Options.katy_24_25")
+          td Coldstream Hills Yarra Valley Range Chardonnay
+
+
+        / Katy Perry 24-25 November Menu Four
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Four' && Options.katy_24_25")
+          td T’Gallant Grace Pinot Grigio
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Four' && Options.katy_24_25")
+          td Pepperjack Shiraz
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Four' && Options.katy_24_25")
+          td Matua Estate Series Lands & Legends Sauvignon Blanc
+
+
+        / Katy Perry 12-13 December Menu Five
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Five' && Options.katy_12_13")
+          td Matua Estate Lands & Legends Sauvignon Blanc
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Five' && Options.katy_12_13")
+          td Abel’s Tempest Pinot Noir
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Five' && Options.katy_12_13")
+          td Leo Buring Premium Regional Leopold Riesling
+
+
+        / Katy Perry 12-13 December Menu Six
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Six' && Options.katy_12_13")
+          td T’Gallant Grace Pinot Grigio
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Six' && Options.katy_12_13")
+          td Baileys of Glenrowan Cabernet Sauvignon
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Six' && Options.katy_12_13")
+          td Matua Estate Series Lands & Legends Sauvignon Blanc
+
+
+
+        / Stones Menu One
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu One' && Options.stones")
+          td Devil’s Lair The Hidden Cave Chardonnay
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu One' && Options.stones")
+          td Abel’s Tempest Pinot Noir
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu One' && Options.stones")
+          td Baileys of Glenrowan Cabernet Sauvignon
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu One' && Options.stones")
+          td Matua Estate Series Paratei Sauvignon Blanc
+
+        / Stones Menu Two
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Two' && Options.stones")
+          td Leo Buring Premium Regional Leopold Riesling
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Two' && Options.stones")
+          td Abel’s Tempest Pinot Noir
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Two' && Options.stones")
+          td Pepperjack Shiraz
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.selectedOptions.selection.menu.name == 'Menu Two' && Options.stones")
+          td Matua Estate Series Paratei Sauvignon Blanc
+
+        / Netball Menu One
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.netball")
+          td Saltram 1859 Shiraz
+        tr(ng-show="Options.selectedOptions.selection.foodBeveragePairing && Options.netball")
+          td Rosemount Estate District Release Chardonnay
+
+        / Standard shared stuff
+        tr(ng-show="Options.selectedOptions.selection.dessertWinePairing")
+          td Baileys of Glenrowan Fortified Founder Series Muscat
+        tr(ng-show="Options.selectedOptions.selection.dessertWinePairing")
+          td Baileys of Glenrowan Fortified Founder Series Topaque
+        tr(ng-show="Options.selectedOptions.selection.standardDrinkList")
+          td Your Standard Drinks List
+        tr(ng-if="Options.shouldShowCoke()")
+          td A variety of Coca-Cola soft drinks
+
+br
+
+div.flex-center(ng-if="Options.selectedOptions.selection.snacks")
+  div.panel
+    .top-bar
+      .title Selected Snacks
+    table
+      thead
+        tr
+          th Name
+          th.actions Quantity
+      tbody
+        tr(ng-repeat="item in Options.selectedOptions.selection.snacks")
+          td(ng-bind="item.name")
+          td.actions(ng-bind="item.count")
+br
+div.flex-center(ng-if="Options.selectedOptions.selection.parkingSpaces")
+  div.panel
+    .top-bar
+      .title Parking
+    h1
+      |{{Options.selectedOptions.selection.parkingSpaces}}
+br
+div.flex-center
+  div.panel
+    .top-bar
+      .title Details
+    .field
+      label
+        |Instructions
+        textarea(ng-model="Options.selectedOptions.selection.notes" disabled)
+    .field
+      label
+        |Host Details
+        textarea(ng-model="Options.selectedOptions.selection.host_details" disabled)
+    .field
+      label
+        |Host can order additional items
+        input(type="checkbox" ng-model="Options.selectedOptions.selection.hostCanOrderAdditionalItems" disabled)
+    .field ng-if='Options.wiggles'
+      label
+        |Dedicated Steward
+        input(type="checkbox" ng-model="Options.selectedOptions.selection.stewardRequired" disabled)

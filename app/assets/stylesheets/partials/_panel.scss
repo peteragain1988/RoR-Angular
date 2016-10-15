@@ -1,0 +1,11 @@
+.panel {
+  @include clearfix;
+  padding: 3rem $column / 2;
+  background-color: $white;
+  border: 1px solid darken($white, 15);
+}
+
+.tabbed-panel {
+  @extend .panel;
+  padding-top: 1rem ;
+}

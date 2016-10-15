@@ -1,0 +1,47 @@
+#event-view
+  .row
+    .panel
+      //.top-bar
+          button.small.grey(ng-click="eventEditing = true" ng-hide="eventEditing") Edit
+      .details
+        .top-bar
+          .title(ng-bind="event.data.name" ng-if="event.data.name")
+          .actions
+            button.button.small-button.flat-grey-button(ng-click="editEvent()") Edit
+
+        img.tile(ng-src='{{event.tileImage()}}' width="100%" ng-if='event.tileImage()' )
+        hr
+        .info-pair
+          .lead Type
+          .data
+            div(ng-bind="event.data.event_type")
+        .info-pair
+          .lead Status
+          .data
+            div(ng-bind="event.data.status")
+        .info-pair
+          .lead Description
+          .data.desc
+            div(ng-bind="event.data.description")
+
+    .panel
+      .top-bar
+        .title Event Dates
+        button.button.small-button.flat-grey-button(ng-click="newEventDate()") New Date
+      table
+        tbody
+          tr(ng-repeat="date in dates")
+            td(ng-bind="date.data.facility.name")
+            td
+              span(ng-bind="date.data.start | amDateFormat: 'D'")
+              sup(ng-bind="date.data.start | amDateFormat: 'Do' | filterNumeric" )
+              span(ng-bind="date.data.start | amDateFormat: ' MMMM YYYY'" )
+              .time(ng-bind="date.data.start | amDateFormat: 'h:mm a'")
+            td
+              span(ng-bind="date.data.finish | amDateFormat: 'D'")
+              sup(ng-bind="date.data.finish | amDateFormat: 'Do' | filterNumeric")
+              span(ng-bind="date.data.finish | amDateFormat: ' MMMM YYYY'")
+              .time(ng-bind="date.data.finish | amDateFormat: 'h:mm a'")
+            td.actions
+              button.button.small-button.flat-blue-button-outline(ng-click="editDate(date)") Edit
+              button.button.small-button.flat-blue-button-outline(ng-click="releaseDate(date)") Release

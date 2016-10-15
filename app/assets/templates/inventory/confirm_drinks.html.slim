@@ -1,0 +1,45 @@
+div.flex-center ng-if='!Options.noSnacks'
+  #steps
+    .step.done(data-desc="Menu") 1
+    .step.active(data-desc="Drinks") 2
+    .step(data-desc="Snacks") 3
+    .step(data-desc="Parking") 4
+    .step(data-desc="Details") 5
+    .step(data-desc="Final Review") 6
+
+div.flex-center ng-if='Options.noSnacks'
+  #steps
+    .step.done(data-desc="Menu") 1
+    .step.active(data-desc="Drinks") 2
+    .step(data-desc="Parking") 3
+    .step(data-desc="Details") 4
+    .step(data-desc="Final Review") 5
+
+div.toolbar
+  .actions.full
+    button.button.flat-grey-button(ng-click="wantStandardDrinksMenu()" tooltip="This button confirms a standard drinks order, if selected we will provide drinks to your suite") Just Our Standard Drinks Order
+    button.button.flat-grey-button(ui-sref="authenticated.main.inventory.confirmOptions.menu") Previous
+    button.button.flat-blue-button(ng-click="goToSnackSelection()") Next
+#drinksGrid
+  div(ng-repeat="section in Options.drinks.sections")
+    .title(ng-bind="section.name")
+    span(ng-if="section.description" ng-bind="section.description")
+    hr
+    div.flex-panel-grid.quad
+      div.category.panel(ng-repeat="item in section.items")
+        .flex
+          .heading(ng-bind="item.name")
+          i.icon-thin-368_photo_image_camera_take_shot(ng-click="openModalForItemImage(item)" ng-if="item.data.image")
+        .description(ng-bind="item.description")
+        br
+        .price(style="text-align: center") {{ item.price_cents / 100 | currency }}
+        br
+        .buttons
+          button.button.flat-grey-button.small-button(ng-click="confirmDrink(item)" ng-show="!item.requested") Request
+          button.button.flat-blue-button.small-button(ng-click="unConfirmDrink(item)" ng-show="item.requested") Un-Request
+hr
+div.toolbar
+  .actions.full
+    button.button.flat-grey-button(ng-click="wantStandardDrinksMenu()" tooltip="This button confirms a standard drinks order, if selected we will provide drinks to your suite") Just Our Standard Drinks Order
+    button.button.flat-grey-button(ui-sref="authenticated.main.inventory.confirmOptions.menu") Previous
+    button.button.flat-blue-button(ng-click="goToSnackSelection()") Next

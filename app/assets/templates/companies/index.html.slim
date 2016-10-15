@@ -1,0 +1,22 @@
+.panel
+  .toolbar
+    .toolbar-search
+      input(type="text" placeholder="Name or Email" ng-model="filterValue" ng-change="updateFilter()" autofocus)
+    .toolbar-buttons-right ng-if="Auth.currentUser.permissions['venue_admin?']"
+      button.button.flat-blue-button(ui-sref="authenticated.main.company.add.search") Add Company
+  hr
+
+  table
+    thead
+      tr
+        th Name
+        th Manager Email
+        th Ticket Type
+        th.actions Actions
+      tbody
+        tr(ng-repeat="client in data | filter:filterModel")
+          td(ng-bind="client.data.name")
+          td(ng-bind="client.data.manager.email")
+            td(ng-bind="client.data.ticket_type")
+          td.actions
+            button.button.small-button.flat-blue-button-outline(ng-click='viewCompany(client.data.id)') View

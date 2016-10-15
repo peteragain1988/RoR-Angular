@@ -1,0 +1,18 @@
+div.flex-center
+  #steps
+    .step.done(data-desc="Company Name") 1
+    .step.active(data-desc="Company Address") 2
+    .step(data-desc="Platform Config") 3
+    .step(data-desc="Company Administrator") 4
+    .step(data-desc="Financial Config") 5
+    //.step(data-desc="Facility Lease") 5
+.flex-center
+  .panel
+    form(novalidate='' name="form")
+      == Slim::Template.new("#{Rails.root.join('app','assets','templates','companies','forms','address.html.slim')}").render
+      /== Slim::Template.new("#{@pathname.split.first.join('shared','review.html.slim')}").render
+    br
+    .toolbar
+      .actions.full
+        button.button.grey(ui-sref="authenticated.main.clients.add.name") Previous
+        button.button.flat-blue-button(ui-sref="authenticated.main.clients.add.config" ng-disabled="address.$invalid") Next

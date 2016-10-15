@@ -1,0 +1,26 @@
+div.flex-center
+  #steps
+    .step.done(data-desc="Company Name") 1
+    .step.done(data-desc="Company Address") 2
+    .step.done(data-desc="Platform Config") 3
+    .step.done(data-desc="Company Administrator") 4
+    .step.active(data-desc="Financial Config") 5
+.flex-center
+  .panel
+    .top-bar
+      .title Financial Config
+    form(name="admin" novalidate)
+      .field
+        label
+          | Payment Terms
+          select ng-model="company.data.payment_terms"
+            option value='EFT' EFT
+            option value='Invoice' Invoice
+        label
+          | Order Block
+          input type="checkbox" ng-model="company.data.order_block"
+    br
+    .toolbar
+      .actions.full
+        button.button.grey(ui-sref="authenticated.main.clients.add.admin") Previous
+        button.button.flat-blue-button(ng-click="save(company.data)" ng-disabled="admin.$invalid") Save

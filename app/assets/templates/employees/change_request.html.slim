@@ -1,0 +1,11 @@
+div.panel.smallish
+  form(name='changeRequestForm')
+    fieldset
+      legend Request change to my Profile
+
+      .field
+        textarea placeholder='Detail changes here please ' ng-model='comment' required='' autofocus=''
+
+
+      .field.right
+        button.button.flat-blue-button(ng-click='changeRequest(comment)' data-ng-disabled='changeRequestForm.$invalid') Send

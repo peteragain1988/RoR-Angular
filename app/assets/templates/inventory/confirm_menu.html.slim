@@ -1,0 +1,33 @@
+div.flex-center ng-if='!Options.noSnacks'
+  #steps
+    .step.active(data-desc="Menu") 1
+    .step(data-desc="Drinks") 2
+    .step(data-desc="Snacks") 3
+    .step(data-desc="Parking") 4
+    .step(data-desc="Details") 5
+    .step(data-desc="Final Review") 6
+
+div.flex-center ng-if='Options.noSnacks'
+  #steps
+    .step.active(data-desc="Menu") 1
+    .step(data-desc="Drinks") 2
+    .step(data-desc="Parking") 3
+    .step(data-desc="Details") 4
+    .step(data-desc="Final Review") 5
+
+div.flex-container.menu-selection
+  div.panel.menu(ng-repeat="menu in Options.menus" ng-click="selectMenu(menu)")
+    .top-bar
+      .title(ng-bind="menu.name")
+    .menu-item-listing
+      div.menu-section(ng-repeat="section in menu.sections")
+        .section-title(ng-bind="section.name")
+        div.menu-item(ng-repeat="item in section.items" ng-class="item.drink && 'highlighted'")
+          a(ng-bind="item.name")
+    .bottom-bar
+      .title
+        |{{menu.price_cents / 100 | currency }} per person
+br
+div.toolbar
+  .actions.full
+    button.button.flat-grey-button(ui-sref="authenticated.main.inventory.confirmOptions.drinks") No Thanks

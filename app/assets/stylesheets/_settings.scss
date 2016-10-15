@@ -1,0 +1,74 @@
+@import "bourbon";
+@import "neat/neat-helpers";
+@import "colours";
+
+$max-width: 100%;
+
+$masquerade-bar-height: 3em;
+
+$body-background-color: #f3f5f4;
+$menu-bg-color: #232729;
+$base-font-size: 15px;
+$em-base: $base-font-size;
+$body-font-color: #333;
+
+$header-bottom-border-colour: rgb(70,75,78);
+
+$logo-bg-color: darken($menu-bg-color, 5);
+
+$main-accent: $dark-blue;
+$darkened-main-accent: darken($main-accent, 5);
+
+
+$menu-button-color: rgb(68,72,75);
+$menu-text-color: rgb(216,221,224);
+$menu-heading-color: rgb(115,115,117);
+
+$menu-bg-color-active: $body-background-color;
+$menu-text-color-active: $menu-button-color;
+
+$body-font-family: 'Gotham Rounded SSm A', 'Gotham Rounded SSm B';
+$alt-body-font-family: "Gotham SSm A", "Gotham SSm B";
+
+$form-font-family: $body-font-family;
+$form-label-font-family: $alt-body-font-family;
+
+$form-font-weight: 500;
+$form-outline-color: rgba($watermelon, 0.5);
+
+$visual-grid-opacity: 0.2;
+$visual-grid-color: rgba(255,0,0,0.05);
+
+table {
+  font-family: 'Whitney SSm A', 'Whitney SSm B';
+}
+
+$radius-amount: 3px;
+
+$header-height: 86;
+$nav-bar-width: 19rem;
+
+$prefix-for-microsoft: true;
+$prefix-for-mozilla: true;
+$prefix-for-opera: true;
+$prefix-for-webkit: true;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+h1 {
+  font: 400 1.6em/1.4 "Gotham SSm A", "Gotham SSm B";
+  color: #444
+}
+
+hr { border: none; border-top: 1px solid #e1e1e1; margin-bottom: 20px }
+
+:focus { outline: none; }
+
+$gotham: "Gotham SSm A", "Gotham SSm B";
+$gotham-rounded: "Gotham Rounded SSm A", "Gotham Rounded SSm B";
+
+$navbar-width: 19rem;

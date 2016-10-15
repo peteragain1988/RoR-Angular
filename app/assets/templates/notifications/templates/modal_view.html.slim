@@ -1,0 +1,18 @@
+.panel
+  .field
+    label
+      |Name
+      input type='text' placeholder='Template Name' ng-model='template.name' disabled=""
+  .field
+    label
+      |Subject
+      input type='text' placeholder='Subject' ng-model='template.subject' disabled=""
+  .field
+    label
+      |Reply To
+      input type='text' placeholder='Reply To' ng-model='template.replyTo' disabled=""
+  .field
+    label
+      |Bcc
+      input type='text' placeholder='Bcc' ng-model='template.bcc' disabled=""
+  .mail-template-body.disabled ng-bind-html="template.body"

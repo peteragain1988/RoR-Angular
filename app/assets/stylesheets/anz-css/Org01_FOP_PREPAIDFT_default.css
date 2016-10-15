@@ -1,0 +1,160 @@
+/*COMMON PAGE STYLES */
+
+BODY{ margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; FONT-FAMILY: Verdana,tahoma; height:100%;}
+H1{ COLOR: black; FLOAT: left;  FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+INPUT{ FONT-SIZE: 12px;FONT-FAMILY: Verdana,tahoma;}
+TD { COLOR: #000000; FONT-FAMILY: Verdana,tahoma; FONT-SIZE: 12px; FONT-WEIGHT: normal;}
+FORM {display:inline;}
+OPTION { FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+/*A:visited, A:link, A:active, A:hover  { FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #000080; FONT-FAMILY: Verdana,tahoma;}*/
+
+/* IEBMS STRUCTURE STYLES */
+.ALL-BorderPageLeftCell {WIDTH: 10%; background-image: url('/_reactive/shared/images/img-brdr-lft-bckgrnd.gif'); }
+.ALL-BorderPageRightCell {WIDTH: 50%; background-image: url('/_reactive/shared/images/img-brdr-rgt-bckgrnd.gif');}
+.ALL-BorderPageTopCell {WIDTH: 100%; background-image: url('/_reactive/shared/images/img-brdr-top-bckgrnd.gif'); }
+.ALL-BorderPageBottomCell {WIDTH: 100%; background-image: url('/_reactive/shared/images/img-brdr-bot-bckgrnd.gif'); }
+.ALL-SpacerCellAtLeftOfApplicationCell {WIDTH: 15px;}
+.ALL-ApplicationCell {WIDTH: 615px;}
+.ALL-ApplicationTable {WIDTH: 600px;}
+.ALL-LOGApplicationTable {WIDTH: 600px;}
+.ALL-ERRApplicationTable {WIDTH: 600px;}
+
+/* FOP STYLES */
+.FOP-RowHeader {FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: white; FONT-FAMILY: Verdana,tahoma; BACKGROUND-COLOR: #4040af;}
+.FOP-RowFooter {FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: white; FONT-FAMILY: Verdana,tahoma; BACKGROUND-COLOR: #4040af;}
+.FOP-AlertText {FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: red; FONT-FAMILY: Verdana,tahoma;}
+.FOP-SmallTextBlueBold {FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #1c4f88; FONT-FAMILY: Verdana,tahoma;}
+.FOP-SmallTextBlue {FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #1c4f88; FONT-FAMILY: Verdana,tahoma;}
+
+.FOP-CartPreviewBackground { BACKGROUND-COLOR: #a1c2e7;}
+
+.FOP-InputLabels {FONT-WEIGHT: bold; color:black; FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+.FOP-Labels {FONT-WEIGHT: bold; color:black; FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+
+.FOP-P1StepsLightBackground { BACKGROUND-COLOR: #d3e4f6;}
+.FOP-InputButton {FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+.FOP-RowSelectError{ FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: red; FONT-FAMILY: Verdana, Tahoma;}
+.FOP-RowWithLightBackground { FONT-SIZE: 12px; FONT-FAMILY: Verdana, Tahoma;  background-color:#e5effa;  }
+.FOP-RedAsterisk {FONT-WEIGHT: bold; FONT-SIZE: 14px;  COLOR: red; FONT-FAMILY: Verdana,tahoma;}
+
+A.FOP-EditDeleteButton:visited, A.FOP-EditDeleteButton:link, A.FOP-EditDeleteButton:active, A.FOP-EditDeleteButton:hover { BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; FONT-WEIGHT: bold; FONT-SIZE: 9px; BACKGROUND: #dadada; BORDER-LEFT: #000000 1px solid; WIDTH: 26px; COLOR: #000080; BORDER-BOTTOM: #000000 1px solid;  TEXT-DECORATION: none;FONT-FAMILY: Verdana,tahoma;}
+
+a.FOP-GeneralLink:visited, a.FOP-GeneralLink:link, a.FOP-GeneralLink:active, a.FOP-GeneralLink:hover {FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma; COLOR: #000080;}
+
+.FOP-SmallNote { FONT-SIZE: 11px; FONT-FAMILY: Verdana, Tahoma; font-style:italic; }
+.FOP-LargeTextBold {FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: blue; FONT-FAMILY: Verdana,tahoma;}
+.FOP-MediumTextRightAligned {FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma; text-align:right;}
+.FOP-MediumText {FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+.FOP-MediumTextBold { FONT-WEIGHT: bold; FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+.FOP-LargeTextBlack { FONT-WEIGHT: bold; FONT-SIZE: 18px; COLOR: black; FONT-FAMILY: Verdana,tahoma;}
+.FOP-ListRow { FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;  BACKGROUND-COLOR: #C2DAF4;}
+.FOP-ListRowHeader { FONT-WEIGHT: bold; FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma; BACKGROUND-COLOR: #a1c2e7;}
+
+.FOP-RowInstructionsErr{ FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: red; FONT-FAMILY: Verdana, Tahoma;}
+.FOP-DateFormatExample { FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #888888; FONT-FAMILY: Verdana, Tahoma;}
+.FOP-Space1 {line-height:1px; font-size:1px;}
+.FOP-Space2 {line-height:2px; font-size:1px;}
+.FOP-Space3 {line-height:3px; font-size:1px;}
+.FOP-Space5 {line-height:5px; font-size:1px;}
+.FOP-Space7 {line-height:7px; font-size:1px;}
+.FOP-Space10 {line-height:10px; font-size:1px;}
+.FOP-Space14 {line-height:14px; font-size:1px;}
+.FOP-SpaceBlack {line-height:5px; font-size:1px;background-color: black;}
+.FOP-DividerLine {color:#E6E6E6;height:1px;border-style: solid; border-width:0px;background-color:#E6E6E6;}
+.FOP-DividerLineRow {height:12px;FONT-SIZE:12px;}
+.FOP-RowSubHeader { FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #003399; FONT-FAMILY: Verdana, Tahoma; }
+.FOP-UL{ FONT-SIZE: 12px; LIST-STYLE-TYPE: disc; FONT-FAMILY: Verdana,tahoma; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 5px; PADDING-RIGHT: 0px; PADDING-LEFT: 15px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; }
+.FOP-LI{ FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma; }
+.FOP-MediumTextBlue{ FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: blue; FONT-FAMILY: Verdana, Tahoma}
+.FOP-MediumTextRed{ FONT-SIZE: 12px; COLOR: red; FONT-FAMILY: Verdana, Tahoma} 
+.FOP-MediumTextBoldRed{ FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: red; FONT-FAMILY: Verdana, Tahoma} 
+.FOP-MediumTextDisabledField{ FONT-WEIGHT: normal; FONT-SIZE: 12px; background-color: #cfcfcf; FONT-FAMILY: Verdana, Tahoma}
+.FOP-MediumTextFormatExample { FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:#d3d3d3; FONT-FAMILY: Verdana, Tahoma;}
+
+.FOP-ToolTipBox {padding: 5px;font-size: 12px;border: black solid 1px;font-family: verdana;  background-color: #efefef; color:#000000;text-align:left;font-weight:normal;}
+
+.FOP-USIWebDateChooser {Background-color:#a1c2e7;}
+
+.FOP-ItemTableColor {background-color: white;}
+
+
+/* ERROR PAGE STYLES */
+.ERR-AlertMessage {FONT-SIZE: 14px;COLOR: red;FONT-FAMILY: Verdana,tahoma;TEXT-ALIGN: center}
+.ERR-AlertMessageBlack { FONT-SIZE: 14px;COLOR: black;FONT-FAMILY: Verdana,tahoma;TEXT-ALIGN: center}
+.ERR-AlertMessageBlackLarge {FONT-WEIGHT: bold;FONT-SIZE: 15px;COLOR: black;FONT-FAMILY: Verdana,tahoma;TEXT-ALIGN: center}
+.ERR-RowHeader {FONT-WEIGHT: bold;FONT-SIZE: 14px; COLOR: white;FONT-FAMILY: Verdana,tahoma;BACKGROUND-COLOR: #4040af}
+.ERR-RowFooter {FONT-WEIGHT: bold;FONT-SIZE: 14px;COLOR: white; FONT-FAMILY: Verdana,tahoma; BACKGROUND-COLOR: #4040af}
+.ERR-Space1 { line-height:1px; font-size:1px; }
+.ERR-Space2 {line-height:2px; font-size:1px;  }
+.ERR-Space3 {line-height:3px; font-size:1px;  }
+.ERR-Space5 {line-height:5px; font-size:1px;  }
+.ERR-Space7 { line-height:7px; font-size:1px; }
+.ERR-Space14 {line-height:14px; font-size:1px;  }
+.ERR-DividerLine {color:#E6E6E6;height:1px;border-style: solid; border-width:0px;background-color:#E6E6E6;}
+.ERR-DividerLineRow {height:12px;FONT-SIZE:12px;}
+.ERR-RowSubHeader { FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #003399; FONT-FAMILY: Verdana, Tahoma; }
+.ERR-UL{ FONT-SIZE: 12px; LIST-STYLE-TYPE: disc; FONT-FAMILY: Verdana,tahoma; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 5px; PADDING-RIGHT: 0px; PADDING-LEFT: 15px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; }
+.ERR-LI{ FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma; }
+
+
+/* LOGON STYLES */
+a.LOG-LogonLink:visited, a.LOG-LogonLink:active, a.LOG-LogonLink:hover, a.LOG-LogonLink:link {FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma; COLOR: #000080;}
+a.LOG-CreateNewAccountLink:visited, a.LOG-CreateNewAccountLink:active, a.LOG-CreateNewAccountLink:hover, a.LOG-CreateNewAccountLink:link {FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma; COLOR: #000080;}
+a.LOG-EmailMyPasswordLink:visited, a.LOG-EmailMyPasswordLink:active, a.LOG-EmailMyPasswordLink:hover, a.LOG-EmailMyPasswordLink:link {FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma; COLOR: #000080;}
+.LOG-AccountOff {color:#000000;BACKGROUND-COLOR:#ffffff;FONT-FAMILY: Verdana,tahoma;}
+.LOG-AccountOn {color:#000000;BACKGROUND-COLOR: #ffffff;FONT-FAMILY: Verdana,tahoma; }
+.LOG-AccountClick {color:#ffffff;BACKGROUND-COLOR: #e5effa;FONT-FAMILY: Verdana,tahoma; }
+.LOG-SectionHeader { FONT-WEIGHT: bold; FONT-SIZE: 12px; FONT-FAMILY: Verdana, Tahoma; BACKGROUND-COLOR: #CBDCEE; }
+.LOG-InputBox {FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+.LOG-InputBoxUppercase {FONT-SIZE: 12px;TEXT-TRANSFORM: uppercase;FONT-FAMILY: Verdana,tahoma; }
+.LOG-InputButton {FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+.LOG-InputLabels {FONT-SIZE: 12px; color:black; FONT-WEIGHT: bold;  FONT-FAMILY: Verdana,tahoma;}
+.LOG-RowFooter {FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: white; FONT-FAMILY: Verdana,tahoma; BACKGROUND-COLOR: #4040af;}
+.LOG-RowHeader {FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: white; FONT-FAMILY: Verdana,tahoma; BACKGROUND-COLOR: #4040af;}
+.LOG-AddNewAcct {FONT-WEIGHT: bold; FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+.LOG-LogonWithExistingAcct { FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma; }
+.LOG-BackgroundTable {BACKGROUND-COLOR: #e5effa;} 
+.LOG-SmallNote { FONT-SIZE: 11px; FONT-FAMILY: Verdana, Tahoma; font-style:italic; }
+.LOG-RowWithLightBackground { FONT-SIZE: 12px; FONT-FAMILY: Verdana, Tahoma;  background-color:#e5effa;  }
+.LOG-RowInstructions{ FONT-SIZE: 12px; FONT-FAMILY: Verdana, Tahoma; } 
+.LOG-ListRow { BACKGROUND-COLOR: #D3E4F6;FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+.LOG-ListRowALittleDarker { BACKGROUND-COLOR: #D3E4F6;FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+.LOG-ListRowHeader { BACKGROUND-COLOR: #A1C2E7;FONT-WEIGHT: bold; FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+.LOG-SmallText{ FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Verdana, Tahoma} 
+.LOG-MediumText{ FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Verdana, Tahoma} 
+.LOG-MediumTextBold{ FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Verdana, Tahoma} 
+.LOG-Space1 { line-height:1px; font-size:1px; }
+.LOG-Space2 {line-height:2px; font-size:1px;  }
+.LOG-Space3 {line-height:3px; font-size:1px;  }
+.LOG-Space5 {line-height:5px; font-size:1px;  }
+.LOG-Space7 { line-height:7px; font-size:1px; }
+.LOG-Space14 {line-height:14px; font-size:1px;  }
+.LOG-MediumTextRightAligned {FONT-WEIGHT: normal; text-align:right; FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+.LOG-DividerLine {color:#E6E6E6;height:1px;border-style: solid; border-width:0px;background-color:#E6E6E6;}
+.LOG-DividerLineRow {height:12px;FONT-SIZE:12px;}
+.LOG-RowSubHeader { FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #003399; FONT-FAMILY: Verdana, Tahoma; }
+.LOG-UL{ FONT-SIZE: 12px; LIST-STYLE-TYPE: disc; FONT-FAMILY: Verdana,tahoma; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 5px; PADDING-RIGHT: 0px; PADDING-LEFT: 15px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; }
+.LOG-LI{ FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma; }
+.LOG-MediumTextBlue{ FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: blue; FONT-FAMILY: Verdana, Tahoma}
+.LOG-MediumTextRed{ FONT-SIZE: 12px; COLOR: red; FONT-FAMILY: Verdana, Tahoma} 
+.LOG-MediumTextBoldRed{ FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: red; FONT-FAMILY: Verdana, Tahoma} 
+.LOG-MediumTextDisabledField{ FONT-WEIGHT: normal; FONT-SIZE: 12px; background-color: #cfcfcf; FONT-FAMILY: Verdana, Tahoma}
+.LOG-MediumTextFormatExample { FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:#d3d3d3; FONT-FAMILY: Verdana, Tahoma;}
+.LOG-USIWebDateChooser {Background-color:#a1c2e7;}
+
+
+
+/* PAYMENT PAGE STYLES */
+.PAY-InputButton {FONT-SIZE: 12px; FONT-FAMILY: Verdana,tahoma;}
+.PAY-InputLabels {FONT-SIZE: 12px; color:black; FONT-WEIGHT: bold;  FONT-FAMILY: Verdana,tahoma;}
+.PAY-MediumText{ FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Verdana, Tahoma} 
+.PAY-MediumTextBold{ FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Verdana, Tahoma} 
+.PAY-Space5 {line-height:5px; font-size:1px;  }
+.PAY-Space7 { line-height:7px; font-size:1px; }
+.PAY-Space14 {line-height:14px; font-size:1px;  }
+.PAY-DividerLine {color:#E6E6E6;height:1px;border-style: solid; border-width:0px;background-color:#E6E6E6;}
+.PAY-DividerLineRow {height:12px;FONT-SIZE:12px;}
+.PAY-RowSubHeader { FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #003399; FONT-FAMILY: Verdana, Tahoma; }
+A.PAY-EditButton { FONT-SIZE: 14px; COLOR: #007dba; TEXT-DECORATION: underline;FONT-FAMILY: Verdana,tahoma;}
+A.PAY-EditButton:visited, A.PAY-EditButton:link, A.PAY-EditButton:active, A.PAY-EditButton:hover { FONT-SIZE: 14px; COLOR: #000080; TEXT-DECORATION: underline;FONT-FAMILY: Verdana,tahoma;}
+

@@ -1,0 +1,48 @@
+div.flex-center
+  #steps
+    .step.active(data-desc="Basic Details") 1
+    .step(data-desc="Client Config") 2
+    .step(data-desc="Approval Path" ng-if="Auth.currentUser.permissions['venue_admin?']") 3
+.flex-center
+  .panel
+    form(novalidate='' name="basicForm")
+
+      .field
+        label
+          |First Name
+          input type='text' placeholder='First Name' ng-model='employee.profileAttributes.firstName' required='' autofocus=''
+        .field
+          label
+            |Last Name
+            input type='text' placeholder='Last Name' ng-model='employee.profileAttributes.lastName' required=''
+        .field
+          label
+            |Email
+            input type='text' placeholder='Email' ng-model='employee.email' required='' ng-pattern='/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'
+
+        .field
+          label
+            |Sex
+            select ng-model='employee.profileAttributes.sex' required=''
+              option(value='Male') Male
+              option(value='Female') Female
+
+        .field
+          label
+            |State
+            select ng-model='employee.state'
+              option(value='{{state.value}}' ng-selected='employee.state == state.value' data-ng-repeat='state in states') {{state.name}}
+
+        .field ng-if="Auth.currentUser.permissions['venue_admin?']"
+          label
+            |Position
+            input type='text' placeholder='Position' ng-model='employee.position'
+
+        .field ng-if="Auth.currentUser.permissions['venue_admin?']"
+          label
+            |Cost Center
+            input type='text' placeholder='Cost Center' ng-model='employee.costCenter'
+    br
+    .toolbar
+      .actions.full
+        button.button.flat-blue-button(ui-sref="authenticated.main.employee.add.new.client" ng-disabled="basicForm.$invalid") Next

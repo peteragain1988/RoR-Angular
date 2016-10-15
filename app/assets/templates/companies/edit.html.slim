@@ -1,0 +1,17 @@
+.tabbed-panel
+  form(name="editForm" novalidate)
+    tabset
+      tab(heading="Details")
+        == Slim::Template.new("#{@pathname.split.first.join('forms','details.html.slim')}").render
+        == Slim::Template.new("#{@pathname.split.first.join('forms','address.html.slim')}").render
+      tab(heading="Notifications")
+        == Slim::Template.new("#{@pathname.split.first.join('forms','notifications.html.slim')}").render
+      tab(heading="Platform Config" ng-if="Auth.currentUser.permissions['venue_admin?']")
+        == Slim::Template.new("#{@pathname.split.first.join('forms','config.html.slim')}").render
+      tab(heading="Manager")
+        == Slim::Template.new("#{@pathname.split.first.join('forms','manager.html.slim')}").render
+      tab(heading="Financial Config" ng-if="Auth.currentUser.permissions['venue_admin?']")
+        == Slim::Template.new("#{@pathname.split.first.join('forms', 'financial.html.slim')}").render
+  .modal-footer
+    hr
+    button.button.flat-blue-button(ng-disabled="editForm.$invalid" ng-click="save()") Save Changes

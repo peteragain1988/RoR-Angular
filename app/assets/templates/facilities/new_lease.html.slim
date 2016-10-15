@@ -1,0 +1,26 @@
+.panel
+  form(name="leaseForm")
+    .title New Lease
+    .field ng-if='companies'
+      label
+        |Company Name
+        select(ng-model="lease.company_id" ng-options='client.data.id as client.data.name for client in companies' required)
+    .field ng-if='facilities'
+      label
+        |Facility Name
+        select(ng-model="lease.facility_id" ng-options='facility.id as facility.name for facility in facilities' required)
+
+    .field
+      label
+        |Lease Start
+        input type="datetime-local" ng-model="lease.start" date-fix='' to-unix='' required=''
+    .field
+      label
+        |Lease End
+        input type="datetime-local" ng-model="lease.finish" date-fix='' to-unix='' required=''
+    /.field
+      label
+        |Lease Enabled
+        input(type="checkbox" ng-model="lease.data.is_enabled")
+    .field.right
+      button.button.flat-blue-button(ng-click='save()' ng-disabled="leaseForm.$invalid") Create Lease

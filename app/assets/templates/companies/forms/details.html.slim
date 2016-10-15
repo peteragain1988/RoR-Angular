@@ -1,0 +1,13 @@
+.field
+  label
+    | Company Name
+    input type="text"  ng-model="company.data.name" ng-minlength="2" required=''
+.inline-numbers
+  .field
+    label
+      |Phone
+      input type="text" ng-model="company.data.phone" ng-minlength="8" pattern="[0-9]+" required=''
+  .field
+    label
+      |Fax
+      input type="text" ng-model="company.data.fax"

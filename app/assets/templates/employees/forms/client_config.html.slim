@@ -1,0 +1,42 @@
+div.flex-center
+  #steps
+    .step.done(data-desc="Basic Details") 1
+    .step.active(data-desc="Client Config") 2
+    .step(data-desc="Approval Path" ng-if="Auth.currentUser.permissions['venue_admin?']") 3
+.flex-center
+  .panel
+    form(novalidate='' name="clientConfigForm")
+      .field ng-if="Auth.currentUser.permissions['venue_admin?']"
+        label
+          |Employee Class
+          select ng-model='employee.profileAttributes.klass'
+            option(value='{{class.value}}' ng-selected='employee.profileAttributes.klass == class.value' data-ng-repeat='class in classes') {{class.name}}
+
+      .field ng-if="Auth.currentUser.permissions['venue_admin?']"
+        label
+          |Department
+          select ng-model='employee.departmentId'
+            option(value='{{department.id}}' ng-selected='employee.departmentId == department.id' data-ng-repeat='department in departments') {{department.name}}
+
+      .field
+        label
+          |Permission Set
+          select ng-model='employee.permission' required=''
+            option(value='{{role.value}}' ng-selected='employee.permission == role.value' data-ng-repeat='role in roles') {{role.name}}
+
+      .field ng-if="Auth.currentUser.permissions['venue_admin?']"
+        label
+          |Ticked if user has BI Access.
+          input type='checkbox' ng-model='employee.biAccess'
+
+      .field ng-if="employee.id"
+        label
+          |Ticked if user can login.
+          input type='checkbox' ng-model='employee.canLogin'
+    br
+    .toolbar
+      .actions.full
+        button.button.grey(ui-sref="authenticated.main.employee.add.new.basic") Previous
+        button.button.flat-blue-button(ui-sref="authenticated.main.employee.add.new.approval" ng-disabled="clientConfigForm.$invalid" ng-if="Auth.currentUser.permissions['venue_admin?']") Next
+        button.button.flat-blue-button(ng-click='saveEmployee(employee)' ng-if="!savingEmployee && Auth.currentUser.permissions['client_admin?']" ng-disabled="approvalPathForm.$invalid") Save
+        button.button.flat-blue-button(disabled='' ng-if="savingEmployee && Auth.currentUser.permissions['client_admin?']") Saving...

@@ -1,0 +1,68 @@
+.mail-template-panel
+  .toolbar
+    .toolbar-title Select Event
+  form name='sendForm'
+    .field
+      select ng-model='data.event_date_id' required='' ng-change='eventSelectionChanged()'
+        optgroup ng-repeat='event in events' label='{{event.name}}'
+          option ng-repeat='date in event.event_dates' value='{{date.id}}'
+            |{{event.name}} - {{date.start | amDateFormat: 'D MMMM YYYY h:mm a'}}
+
+    hr
+    .toolbar
+      .toolbar-title Select Recipient Companies
+      .toolbar-buttons-right
+        button.button.flat-grey-button.small-button ng-click='selectCompaniesWithoutLease()' Without Lease
+        button.button.flat-grey-button.small-button ng-click='selectCompaniesWithLease()' With Lease
+
+    .table
+      .table-header
+        .table-row
+          .table-cell.checkbox
+            input(type="checkbox" ng-change="toggleAllCompanies()" ng-model="allCompaniesSelected")
+          .table-cell Company Name
+          .table-cell Facility Leases
+      .table-content
+        .table-row ng-repeat='company in recipients' ng-class='{selected: company.selected}'
+          .table-cell.checkbox
+            input type="checkbox" ng-model="company.selected" ng-change='companySelectionChanged()'
+          .table-cell ng-bind='::company.name'
+          .table-cell
+            span ng-bind='::company.leases | json'
+
+.mail-template-data-panel
+  .toolbar
+    .toolbar-title Details
+
+  strong Selected Event
+  hr
+  ul
+    li ng-bind='selectedEvent.name'
+    li ng-bind="selectedEventDate.start | amDateFormat: 'D MMMM YYYY h:mm a'"
+
+  br
+  strong Selected Companies - {{selectedCompanies.length || 0}} Selected
+  hr
+  ul
+    li ng-repeat='company in selectedCompanies' ng-bind='company.name'
+
+
+
+  .bottom-toolbar
+    .toolbar-buttons-right
+
+      button.button.flat-tangerine-button.full-size-button(
+        ng-click='sendNotify(true)' ng-disabled="sendForm.$invalid || loading"
+        tooltip="A notification will be sent to the currently logged in user"
+        )
+        .button-spinner.mla ng-show='loading'
+          .slow-white-spinner-icon
+        span.mra ng-class="{false:'ma'}[loading]" Send Test Notfication
+
+      button.button.flat-green-button.full-size-button(
+        ng-click='sendNotify()' ng-disabled="sendButtonDisabled()"
+        tooltip="A notification will be sent to all the client admins in selected companies. Please review your selections prior to doing this."
+      )
+        .button-spinner.mla ng-show='loading'
+          .slow-white-spinner-icon
+        span.mra ng-bind='sendButtonText' ng-class="{false:'ma'}[loading]"

@@ -1,0 +1,88 @@
+.vertical-align-contents {
+  @include display(flex);
+  @include align-content(center);
+}
+
+.vertical-align-items {
+  @include display(flex);
+  @include align-items(center);
+}
+
+.flex-align-self-center {
+  @include align-self(center)
+}
+
+.flex-align-items-center {
+  @include align-items(center)
+}
+
+.flex-align-items-start {
+  @include align-items(flex-start)
+}
+
+.flex-align-items-end {
+  @include align-items(flex-end)
+}
+
+.flex-align-content-start {
+  @include align-content(flex-start)
+}
+
+.flex-align-content-end {
+  @include align-content(flex-end)
+}
+
+.flex-align-content-center {
+  @include align-content(center)
+}
+
+.flex-display {
+  @include display(flex)
+}
+.flex-display-inline {
+  @include display(inline-flex)
+}
+
+.flex-direction-column {
+  @include flex-direction(column);
+}
+
+.flex-direction-row {
+  @include flex-direction(row);
+}
+
+.flex-justify-content-start {
+  @include justify-content(flex-start);
+}
+
+.flex-justify-content-center {
+  @include justify-content(center);
+}
+
+.flex-justify-content-end {
+  @include justify-content(flex-end);
+}
+
+.flex-wrap {
+  @include flex-wrap(wrap);
+}
+.flex-wrap-reverse {
+  @include flex-wrap(wrap-reverse);
+}
+
+.margin-horziontal-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.invisible-input {
+ visibility: hidden;
+  height: 0;
+  width: 0;
+  position: fixed;
+  left: -9999px;
+}
+
+.display-block {
+  display: block;
+}

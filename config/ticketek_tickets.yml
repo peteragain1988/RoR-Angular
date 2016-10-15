@@ -1,0 +1,22 @@
+:development:
+  :token_url: 'https://uat-auth.ticketek.com.au/OAuth2/Token'
+  :api_url: 'https://uat-api-cts.ticketek.com.au/anz/'
+  :email_user: 'dev'
+  :client_id: 'bb7d34c974b04253ad0535309ab9bc86'
+  :client_secret: 'e2961d6eed2d3146e4140e57a714ceb7532fbc1dda5cc77ffb0555ef15ad47e0'
+
+
+:staging:
+  :token_url: 'https://uat-auth.ticketek.com.au/OAuth2/AccessToken'
+  :api_url: 'https://ctsapi-uat.ticketek.com.au'
+  :email_user: 'dev'
+  :client_id: '4ce4d9b4973b416e816e89ce3876eb9d'
+  :client_secret: 'f43dc587d2c94328966c9b296e75afeb'
+
+
+:production:
+  :token_url: 'https://auth.ticketek.com.au/AccessToken'
+  :api_url: 'https://api-cts.ticketek.com.au'
+  :email_user: 'prod'
+  :client_id: '3891479ab31f4f65b232b165a65cee74'
+  :client_secret: '9df4682575cb403990d2365998d11c7c'

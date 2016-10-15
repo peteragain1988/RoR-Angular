@@ -1,0 +1,21 @@
+.panel
+  div.toolbar
+    .filters
+      .field.search
+        input(type="text" placeholder="Search Templates" ng-model="filterModel.data.name" autofocus)
+    .actions
+      button.button.flat-blue-button(ui-sref="^.new")Add Template
+  hr
+  .table
+    .table-header
+      .table-row
+        .table-cell Name
+        .table-cell Actions
+    .table-content
+      .table-row ng-repeat='template in templates track by template.id'
+        .table-cell ng-bind='::template.name'
+        .table-cell
+          button.button.small-button.flat-blue-button-outline ng-click='viewTemplate(template.id)' View
+          button.button.small-button.flat-blue-button-outline ui-sref='^.edit({id: template.id})' Edit
+          button.button.small-button.flat-blue-button-outline ui-sref='^.send({id: template.id})' Send
+          button.button.small-button.flat-watermelon-button-outline ng-click='deleteTemplate(template)' Delete

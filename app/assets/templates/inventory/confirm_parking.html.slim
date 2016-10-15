@@ -1,0 +1,30 @@
+div.flex-center ng-if='!Options.noSnacks'
+   #steps
+      .step.done(data-desc="Menu") 1
+      .step.done(data-desc="Drinks") 2
+      .step.done(data-desc="Snacks") 3
+      .step.active(data-desc="Parking") 4
+      .step(data-desc="Details") 5
+      .step(data-desc="Final Review") 6
+
+div.flex-center ng-if='Options.noSnacks'
+   #steps
+      .step.done(data-desc="Menu") 1
+      .step.done(data-desc="Drinks") 2
+      .step.active(data-desc="Parking") 3
+      .step(data-desc="Details") 4
+      .step(data-desc="Final Review") 5
+
+
+div.flex-center
+   div.panel#parking
+      .top-bar
+         .title P1 Prepaid Parking Requests
+      .field
+         input(type="text" placeholder="0" ng-model="Options.selectedOptions.selection.parkingSpaces")
+      small $25 per parking space
+
+div.toolbar
+  .actions.full
+    button.button.flat-grey-button(ng-click='goToSnackSelection(true)') Previous
+    button.button.flat-blue-button(ui-sref="authenticated.main.inventory.confirmOptions.details") Next

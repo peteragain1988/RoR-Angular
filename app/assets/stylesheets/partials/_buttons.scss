@@ -1,0 +1,160 @@
+@mixin flat-button-color($base-color, $saturate: 0, $tint: 0) {
+  @if $saturate != 0 {
+    @if $saturate > 0 { $base-color: saturate($base-color, $saturate) }
+    @else { $base-color: desaturate($base-color, $saturate * -1) }
+  }
+
+  @if $tint != 0 {
+    @if $tint > 0 { $base-color: darken($base-color, $tint) }
+    @else { $base-color: lighten($base-color, $tint * -1) }
+  }
+
+  background-color: $base-color;
+  border: 1px solid darken($base-color, 5);
+
+  &:hover {
+    background-color: darken($base-color, 10);
+    border: 1px solid darken($base-color, 12);
+  }
+
+  &:active {
+    background-color: darken($base-color, 15);
+    border: 1px solid darken($base-color, 17);
+  }
+
+  &:disabled {
+    background-color: desaturate($base-color, 50);
+    border: 1px solid desaturate($base-color, 40);
+    cursor: inherit;
+  }
+}
+
+@mixin flat-button-outline-color($base-color, $saturate: 0, $tint: 0) {
+  @if $saturate != 0 {
+    @if $saturate > 0 { $base-color: saturate($base-color, $saturate) }
+    @else { $base-color: desaturate($base-color, $saturate * -1) }
+  }
+
+  @if $tint != 0 {
+    @if $tint > 0 { $base-color: darken($base-color, $tint) }
+    @else { $base-color: lighten($base-color, $tint * -1) }
+  }
+
+  background-color: transparent;
+  border: 1px solid $base-color;
+  color: $base-color;
+
+  &:hover {
+    background-color: darken($base-color, 10);
+    border: 1px solid darken($base-color, 12);
+    color: $white;
+  }
+
+  &:active {
+    background-color: darken($base-color, 15);
+    border: 1px solid darken($base-color, 17);
+    color: $white;
+  }
+
+}
+
+.button {
+  @include transition(all 0.3s);
+  @include anti-alias();
+  cursor: pointer;
+  display: inline-block;
+  font-family: $body-font-family;
+  font-weight: 500;
+  padding: rem(12) rem(30);
+//  padding-top: 0.9rem;
+  color: $white;
+  font-size: 0.8rem;
+  border-radius: $radius-amount;
+  text-align: center;
+}
+
+
+.button + .tooltip + .button, .button + .button {
+  margin-left: 1em;
+}
+
+.small-button {
+  padding: em(6) em(15);
+  font-size: 0.89em;
+}
+
+.tiny-button {
+  padding: em(3) em(7.5);
+  font-size: 0.4em;
+}
+
+.icon-button {
+  padding: 0.5em 0.8em;
+  i {font-size: 1.6em}
+}
+
+.flat-blue-button {
+  @include flat-button-color($darkened-main-accent);
+}
+
+.flat-blue-button-outline {
+  @include flat-button-outline-color($main-accent);
+}
+
+.flat-green-button {
+  @include flat-button-color($green);
+  color: darken($green, 30);
+}
+
+.flat-green-button-hover {
+  background-color: $green;
+  border: 1px solid darken($green, 10);
+  color: $white;
+}
+
+.flat-watermelon-button {
+  @include flat-button-color($watermelon);
+}
+
+.flat-watermelon-button-hover {
+  background-color: $watermelon;
+  border: 1px solid darken($watermelon, 10);
+  color: $white;
+}
+
+.flat-watermelon-button-outline {
+  @include flat-button-outline-color($watermelon);
+}
+
+.flat-tangerine-button {
+  @include flat-button-color($tangerine);
+  color: darken($tangerine, 30);
+}
+
+.flat-tangerine-button-outline {
+  @include flat-button-outline-color($tangerine);
+}
+
+.flat-grey-button {
+  @include flat-button-color(#ddd);
+  color: #444;
+}
+
+//button {
+//  @extend .button
+//}
+
+.full-size-button {
+  width: 100%;
+}
+
+.flat-green-tag {
+  @extend .button;
+  @extend .small-button;
+  margin-left: 0.8em;
+  margin-bottom: 0.4em;
+
+  @include flat-button-color(darken($green,20));
+  color: $white;
+  i { margin-right: 1em }
+}

@@ -1,0 +1,6 @@
+.tabbed-panel
+  form(name="editForm" novalidate)
+    tabset
+      tab(heading="Request From Ticketek")
+        .field
+          button.flat-blue-button(ng-click="createManual(ticketPrefix)" ng-disabled="inProgress" ) Create

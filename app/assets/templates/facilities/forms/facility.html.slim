@@ -1,0 +1,15 @@
+form(name="form" novalidate)
+  .field
+    select(ng-model='facility.facilityType' required)
+      option(value="" selected) Facility Type
+      option(value="Suite") Suite
+      option(value="Parking") Parking
+      option(value="Box") Box
+      option(value="CLS") CLS
+  .field
+    input(type='text' placeholder='Name' ng-model='facility.name' autofocus='' required)
+  .field
+    input(type='text' placeholder='Capacity' ng-model='facility.capacity' pattern='[0-9]+' ng-min='0' required)
+  .field.right
+    //button.grey(ui-sref='authenticated.main.events.add.dates') Next Page
+    button.button.flat-blue-button(ng-click='save(facility)' ng-disabled="form.$invalid") Save

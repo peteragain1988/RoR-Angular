@@ -1,0 +1,44 @@
+div.flex-center ng-if='!Options.noSnacks'
+  #steps
+    .step.done(data-desc="Menu") 1
+    .step.done(data-desc="Drinks") 2
+    .step.done(data-desc="Snacks") 3
+    .step.done(data-desc="Parking") 4
+    .step.active(data-desc="Details") 5
+    .step(data-desc="Final Review") 6
+
+div.flex-center ng-if='Options.noSnacks'
+  #steps
+    .step.done(data-desc="Menu") 1
+    .step.done(data-desc="Drinks") 2
+    .step.done(data-desc="Parking") 3
+    .step.active(data-desc="Details") 4
+    .step(data-desc="Final Review") 5
+//div.toolbar
+//   button.flat-blue-button(ng-click="buildOptions()") Next
+//   button.grey(ui-sref="authenticated.main.inventory.confirmOptions.parking") Previous
+.flex-center
+  .panel
+    .top-bar
+      .title Event Specific Details
+    form(name="form" novalidate)
+      .field
+        label
+          |Instructions
+          textarea(placeholder="e.g: No peanuts / Needs disabled access" ng-model="Options.selectedOptions.selection.notes")
+      .field
+        label
+          |Host Details
+          textarea(placeholder="John Smith, 0418 277 332" ng-model="Options.selectedOptions.selection.host_details" required)
+      .field
+        label
+          |Host can order additional items
+          input(type="checkbox" ng-model="Options.selectedOptions.selection.hostCanOrderAdditionalItems")
+      hr
+      .field ng-if='Options.wiggles'
+        label
+          |Stewards will be shared between 2 catered suites. A $250.00 surcharge applies if a Suite would like a dedicated steward. Do you require own steward?
+          input(type="checkbox" ng-model="Options.selectedOptions.selection.stewardRequired")
+      .field.right
+        button.button.flat-grey-button(ui-sref="authenticated.main.inventory.confirmOptions.parking") Previous
+        button.button.flat-blue-button(ng-click="buildOptions()" ng-disabled="form.$invalid") Next

@@ -1,0 +1,111 @@
+
+@mixin anti-alias() {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:focus { outline: none; }
+
+hr { border: none; border-top: 1px solid #e1e1e1; margin-bottom: 20px }
+
+
+@mixin grid-overlay() {
+  &:before {
+      content: '';
+      display: inline-block;
+      @include grid-column-gradient(gradient-stops($grid-columns));
+      height: 100%;
+      margin: 0 auto;
+      max-width: 100%;
+      width: 100%;
+      position: absolute;
+
+    @each $breakpoint in $visual-grid-breakpoints {
+      @if $breakpoint != nil {
+        @include media($breakpoint) {
+          @include grid-column-gradient(gradient-stops($grid-columns));
+        }
+      }
+    }
+  }
+}
+
+@mixin flat-button-color($base-color, $saturate: 0, $tint: 0) {
+  @if $saturate != 0 {
+    @if $saturate > 0 { $base-color: saturate($base-color, $saturate) }
+    @else { $base-color: desaturate($base-color, $saturate * -1) }
+  }
+
+  @if $tint != 0 {
+    @if $tint > 0 { $base-color: darken($base-color, $tint) }
+    @else { $base-color: lighten($base-color, $tint * -1) }
+  }
+
+  background-color: $base-color;
+  border: 1px solid darken($base-color, 5);
+
+  &:hover {
+    background-color: darken($base-color, 10);
+    border: 1px solid darken($base-color, 12);
+  }
+
+  &:active {
+    background-color: darken($base-color, 15);
+    border: 1px solid darken($base-color, 17);
+  }
+
+  &:disabled {
+    background-color: desaturate($base-color, 50);
+    border: 1px solid desaturate($base-color, 40);
+    cursor: inherit;
+  }
+
+}
+
+.flat-button {
+  @include transition(background 0.2s);
+  @include anti-alias();
+  cursor: pointer;
+  font-family: $body-font-family;
+  padding: rem(10) rem(30);
+  color: $white;
+  font-size: 0.8rem;
+  border-radius: $radius-amount;
+
+
+  &.small {
+    padding: rem(5) rem(15);
+    font-size: 0.7rem;
+  }
+
+  &.tiny {
+    padding: rem(2) rem(5);
+    font-size: 0.5rem;
+  }
+}
+
+//.panel {
+//  background-color: $white;
+//  border-radius: $radius-amount;
+//  border: 1px solid darken($body-background-color, 10)
+//}
+
+
+@mixin centered-with-margin($width) {
+  max-width: $width;
+  margin: 0 auto;
+}
+
+.vertical-align-contents {
+  @include display(flex);
+  @include align-content(center);
+}
+
+.vertical-align-items {
+  @include display(flex);
+  @include align-items(center);
+}
+
+.noclick {
+  cursor: inherit;
+}

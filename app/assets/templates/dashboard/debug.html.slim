@@ -1,0 +1,68 @@
+div.form.add
+  form
+    .flex-left
+      div.panel
+        fieldset
+          legend Current Company Details
+          .field
+            label
+              |Company Name
+              input type="text" ng-model="Auth.currentUser.company.name" disabled=''
+          .field
+            label
+              |Company Type
+              input type="text" ng-model="Auth.currentUser.company.type" disabled=''
+          .field
+            label
+              |Company ID
+              input type="text" ng-model="Auth.currentUser.company.id" disabled=''
+      .panel
+        .flex-toolbar
+          .title Manual Ticketing
+          .field.search
+            input type='text' placeholder='Search' ng-model='filterModel'
+        .flex-toolbar
+          .toolbar-buttons-right
+          	button.button.flat-blue-button(ng-click="createAllTickets()" ng-disabled="inTotalProgress") Create Tickets
+        .spinner.spinner-right ng-show='inTotalProgress'
+          .spinner-icon
+        table
+          thead
+            tr
+              th
+              	input(type="checkbox" ng-model="model.allItemsSelected" ng-change="selectAll()")
+              th Client Name
+              th Event Name
+              th Event Date
+              th Facility Name
+              th Ticket Count
+              th.actions Actions
+              th Status
+          tbody
+            tr(ng-repeat="item in inventory | orderBy:'event_date_id':false | filter:filterModel:strict track by item.id")
+              td
+                input(type="checkbox" ng-model="item.done" ng-change="selectItem()")
+              td(ng-bind="item.client_name")
+              td(ng-bind="item.event_name")
+              td(ng-bind="item.event_start | amDateFormat:'DD/MM/YYYY h:mm a'")
+              td(ng-bind="item.facility_name")
+              td(ng-bind="item.ticket_count")
+              td.actions
+                button.flat-blue-button.small(ng-click="createTickets(item)") Create Tickets
+              td
+              	a(ng-bind="item.status" href="#" ng-click="showDetail(item)" class="{{item.status_style}}")
+
+    .flex-right
+      div.panel
+        fieldset
+          legend Current User Permissions
+        .field(ng-repeat="(name, permission) in Auth.currentUser.permissions")
+          label(ng-bind="name")
+          input(type="text" disabled='' ng-model="permission")
+      div.panel
+        fieldset
+          legend User
+          .field
+            label
+              |Access Token
+              input(type="text" disabled='' ng-model="Auth.accessToken")

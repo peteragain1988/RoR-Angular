@@ -1,0 +1,15 @@
+#reviewInventoryOptions.in-modal
+  .panel(ng-if="Options.selectedOptions.is_attending")
+    .top-bar
+      .title(ng-bind="Options.selectedOptions.company.friendly_name")
+    br
+    p(ng-bind="Options.selectedOptions.event_date.event_name")
+    br
+    == Slim::Template.new("#{Rails.root.join('app','assets','templates','inventory','shared','review.html.slim')}").render
+  .panel(ng-if="!Options.selectedOptions.is_attending")
+    .top-bar
+      .title(ng-bind="Options.selectedOptions.company.friendly_name")
+    br
+    p(ng-bind="Options.selectedOptions.event_date.event_name")
+    br
+    p.bold This event has been marked as not attending.

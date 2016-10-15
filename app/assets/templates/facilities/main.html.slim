@@ -1,0 +1,24 @@
+.panel
+  .toolbar
+    .toolbar-search
+      input(type="text" placeholder="Name or Company" ng-model="filterValue" ng-change="updateFilter()" autofocus)
+    .toolbar-buttons-right
+      button.button.flat-blue-button(ng-click="newFacility()") Add Facility
+  hr
+  table
+    thead
+      tr
+        th Name
+        th Type
+        th Capacity
+        th.actions Company
+        th.actions Actions
+
+    tbody
+      tr(ng-repeat="facility in data | orderBy:'facilityNumber' | filter:filterModel")
+        td(ng-bind="facility.name")
+        td(ng-bind="facility.facilityType")
+        td(ng-bind="facility.capacity")
+        td.actions(ng-bind="facility.currentLeaseeName")
+        td.actions
+          button.button.small-button.flat-blue-button-outline(ui-sref="authenticated.main.facility.view({facility_id: facility.id})") View

@@ -1,0 +1,5 @@
+.field
+  label
+    | Manager
+    select ng-model="company.data.manager_id"
+      option value='{{employee.id}}' ng-selected='employee.id == company.data.manager.id' ng-repeat='employee in employees' {{employee.fullName}}

@@ -1,0 +1,35 @@
+div.flex-center
+  #steps
+    .step.done(data-desc='Company Name') 1
+    .step.done(data-desc='Company Address') 2
+    .step.done(data-desc='Platform Config') 3
+    .step.active(data-desc='Company Administrator') 4
+    .step(data-desc='Financial Config') 5
+    //.step(data-desc='Facility Lease') 5
+.flex-center
+  .panel
+    .top-bar
+      .title Company Manager
+    form(name='form' novalidate)
+      .field
+        input(type='email' placeholder='Email' ng-model='company.data.manager.email' required)
+      .field
+        input(type='text' placeholder='First name' ng-model='company.data.manager.profileAttributes.firstName' required)
+      .field
+        input(type='text' placeholder='Last name' ng-model='company.data.manager.profileAttributes.lastName' required)
+      .field
+        label
+          |Sex
+          select ng-model='company.data.manager.profileAttributes.sex' required=''
+            option(value='Male') Male
+            option(value='Female') Female
+      .field
+        label
+          |Role
+          select ng-model='company.data.manager.permission'
+            option(value='{{role.value}}' ng-selected='company.data.manager.permission == role.value' data-ng-repeat='role in roles') {{role.name}}
+    br
+    .toolbar
+      .actions.full
+        button.button.grey(ui-sref='authenticated.main.clients.add.config') Previous
+        button.button.flat-blue-button(ui-sref='authenticated.main.clients.add.finance' ng-disabled='form.$invalid') Next

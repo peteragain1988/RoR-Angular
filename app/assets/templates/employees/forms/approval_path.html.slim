@@ -1,0 +1,31 @@
+div.flex-center
+  #steps
+    .step.done(data-desc="Basic Details") 1
+    .step.done(data-desc="Client Config") 2
+    .step.active(data-desc="Approval Path") 3
+.flex-center
+  .panel
+    form(novalidate='' name="approvalPathForm")
+      .field
+        label
+          |First Manager
+          select ng-model='employee.firstManager'
+            option(value='{{manager.id}}' ng-selected='employee.firstManager == manager.id' data-ng-repeat='manager in managers') {{manager.profileAttributes.firstName}} {{manager.profileAttributes.lastName}}
+
+      .field
+        label
+          |Second Manager
+          select ng-model='employee.secondManager'
+            option(value='{{manager.id}}' ng-selected='employee.secondManager == manager.id' data-ng-repeat='manager in managers') {{manager.profileAttributes.firstName}} {{manager.profileAttributes.lastName}}
+
+      .field
+        label
+          |Third Manager
+          select ng-model='employee.thirdManager'
+            option(value='{{manager.id}}' ng-selected='employee.thirdManager == manager.id' data-ng-repeat='manager in managers') {{manager.profileAttributes.firstName}} {{manager.profileAttributes.lastName}}
+    br
+    .toolbar
+      .actions.full
+        button.button.grey(ui-sref="authenticated.main.employee.add.new.client") Previous
+        button.button.flat-blue-button(ng-click='saveEmployee(employee)' ng-if='!savingEmployee' ng-disabled="approvalPathForm.$invalid") Save
+        button.button.flat-blue-button(disabled='' ng-if='savingEmployee') Saving...

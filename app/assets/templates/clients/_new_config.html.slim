@@ -1,0 +1,21 @@
+div.flex-center
+  #steps
+    .step.done(data-desc="Company Name") 1
+    .step.done(data-desc="Company Address") 2
+    .step.active(data-desc="Platform Config") 3
+    .step(data-desc="Company Administrator") 4
+    .step(data-desc="Financial Config") 5
+    //.step(data-desc="Facility Lease") 5
+.flex-center
+  .panel
+    .top-bar
+      .title Platform Configuration
+    form
+      == Slim::Template.new("#{Rails.root.join('app','assets','templates','companies','forms','config.html.slim')}").render
+      legend Notifcations
+      == Slim::Template.new("#{Rails.root.join('app','assets','templates','companies','forms','notifications.html.slim')}").render
+      //include ../companies/forms/modules
+      br
+      .right
+        button.button.grey(ui-sref="authenticated.main.clients.add.address") Previous
+        button.button.flat-blue-button(ui-sref="authenticated.main.clients.add.admin") Next

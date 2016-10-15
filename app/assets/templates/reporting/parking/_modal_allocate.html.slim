@@ -1,0 +1,18 @@
+.panel
+  .toolbar
+    .title Parking Spaces
+  form name='form' novalidate=''
+    .field
+      label
+        | Requested
+        input type='text' ng-model='option.selection.parkingSpaces' disabled=''
+    .field
+      label
+        | Allocated
+        input type='number' min='0' placeholder='0' ng-model='option.data.parkingSpacesAllocated'
+    .field
+      label
+        | Date Allocated
+        input type='date' ng-model='option.data.parkingAllocationDate'
+    .field.right
+      button.button.flat-blue-button ng-click='save(option)' Save

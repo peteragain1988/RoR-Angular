@@ -1,0 +1,81 @@
+div.toolbar
+  //button.flat-blue-button(ng-click="Ticket.addMagicalTickets()") Add Tickets
+.panel
+  .top-bar
+    .title Available Events
+
+  table
+    thead
+      tr
+        th Name
+        th Type
+        th Status
+        th Start Time
+        th Venue
+        th Facility Name
+        th.actions Actions
+    tbody
+      tr(ng-repeat="event in data | orderBy:'event_start'" ng-class="event.completed && 'green'")
+        td
+          span(ng-bind="event.event_name")
+          span.menu-exists(ng-click="openFile(event.event_menu)" ng-if="event.event_menu") M
+          span.agenda-exists(ng-click="openFile(event.event_agenda)" ng-if="event.event_agenda") A
+          span.tickets-exist(ui-sref="authenticated.main.tickets.index" ng-if="event.released_ticket_count > 0") T
+          //span.ticket-available T
+        td(ng-bind="event.event_type")
+        td(ng-bind="event.event_status")
+        td
+          span(ng-bind="event.event_start | amDateFormat: 'D'")
+          sup(ng-bind="event.event_start | amDateFormat: 'Do' | filterNumeric" )
+          span(ng-bind="event.event_start | amDateFormat: ' MMM YYYY'" )
+          .time(ng-bind="event.event_start | amDateFormat: 'h:mm a'")
+        td(ng-bind="event.venue_name")
+        td(ng-bind="event.facility_name")
+        td.actions.block
+          button.flat-green-tag ng-if='event.is_confirmed'
+            i.icon-thin-254_check_ok_done_success
+            | Confirmed
+          button.button.small-button.flat-watermelon-button-hover ng-if="event.event_status == 'Closed'" tooltip="This event is marked as closed, Please contact the venue if you need any changes made to this event" Closed
+          /button.small.flat-blue-button(
+          /  ng-if='event.inventory_options.hasOysterSpecial && event.is_confirmed && !event.confirmation_data.oysterSpecial'
+          /  ng-click='confirmOysterSpecial(event)'
+          /  tooltip='You are able to confirm specials at any time. Even after your standard order is closed.'
+          /) Confirm Special Offer
+          /button.small.green-confirmed ng-if='event.confirmation_data.oysterSpecial'
+          /  i.icon-thin-254_check_ok_done_success
+          /  | Special Offer Confirmed
+          div(ng-if="event.event_status != 'Closed'")
+            button.button.small-button.flat-blue-button-outline( ng-if="event.is_confirmed"
+              ng-click="reconfirmOption(event)"
+              tooltip="Clicking this button will void your old confirmation. You will need to confirm your attendance again.") Replace Order
+            button.button.small-button.flat-blue-button-outline ui-sref="authenticated.main.inventory.confirmOptions({id: event.id})" ng-if="!event.is_confirmed && event.event_status !='Coming Soon'" Confirm Attendance
+          //button.small.flat-blue-button(ng-click="confirmAttendance(event)" ng-if="!event.is_confirmed") Confirm Options
+          button.button.small-button.flat-blue-button-outline ng-click="confirmGuests(event.id)" ng-if="event.is_confirmed" Guest List
+          /button.small.flat-blue-button(ng-click="releaseToTeam()") Release To Team
+          button.button.small-button.flat-blue-button-outline ui-sref="authenticated.main.inventory.release.identifyClass({id: event.id})" Release To Team
+br
+hr
+.panel
+  .top-bar
+    .title Upcoming Events
+  table
+    thead
+      tr
+        th Name
+        th Type
+        th Start Time
+        th Time Until Event
+        th Number Of Events
+        th Venue Name
+    tbody
+      tr(ng-repeat="event in upcomingEvents | orderBy:'first_event_date':false")
+        td(ng-bind="event.name")
+        td(ng-bind="event.event_type")
+        td
+          .time(ng-bind="event.first_event_date | amDateFormat: 'h:mm a'")
+          span(ng-bind="event.first_event_date | amDateFormat: 'dddd D'")
+          sup(ng-bind="event.first_event_date | amDateFormat: 'Do' | filterNumeric" )
+          span(ng-bind="event.first_event_date | amDateFormat: ' of MMMM YYYY'" )
+        td(am-time-ago="event.first_event_date")
+        td(ng-bind="event.event_dates_count")
+        td(ng-bind="event.venue_name")

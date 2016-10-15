@@ -1,0 +1,39 @@
+.panel
+  .toolbar(ng-if="Auth.currentUser.company.company_type == 'venue'")
+    .filters
+      .field.search
+        input(type="text" placeholder="Client / Event Name" ng-change="updateFilter()" ng-model="$parent.filterValue" autofocus)
+  table
+    thead
+      tr
+        th.time Date Confirmed
+        th Name
+        th Start Time
+        th Facility Name
+        th(ng-if="Auth.currentUser.company.company_type =='venue'") Client Name
+        th(ng-if="Auth.currentUser.company.company_type =='venue'") Reminders
+        th.actions Actions
+    tbody
+      tr(ng-repeat="event in data | filterMultiple:filterModel | orderBy:'event_date'" ng-class="!event.is_attending && 'red'")
+        td.time(ng-bind="event.created_at | date")
+        td
+          span(ng-bind="event.event_name")
+        td
+          span(ng-bind="event.event_date | amDateFormat: 'D'")
+          sup(ng-bind="event.event_date | amDateFormat: 'Do' | filterNumeric" )
+          span(ng-bind="event.event_date | amDateFormat: ' MMM YYYY'" )
+          .time(ng-bind="event.event_date | amDateFormat: 'h:mm a'")
+        //td(ng-bind="event")
+        td(ng-bind="event.facility_name")
+        td(ng-if="Auth.currentUser.company.company_type =='venue'" ng-bind="event.company_name")
+        td(ng-if="Auth.currentUser.company.company_type =='venue'")
+          .field(ng-if="event.company_ticket_type == 'hard'")
+            label
+              |Hard Tickets Sent
+              input(type="checkbox" ng-model="event.data.hardTicketsSent" ng-change="updateOption(event)")
+          /.field(ng-if="event.selection.parkingSpaces")
+            label
+              |Parking Allocated
+              input(type="checkbox" ng-model="event.data.parkingAllocated" ng-change="updateOption(event)")
+        td.actions
+          button.button.small-button.flat-blue-button-outline(ng-click="viewDetails(event)") View Details

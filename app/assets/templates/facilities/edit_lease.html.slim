@@ -1,0 +1,27 @@
+.panel
+  form name="leaseForm"
+    .title Edit Lease
+    .field ng-if='companies'
+      label
+        |Company Name
+        select(ng-model="lease.companyId" ng-options='client.data.id as client.data.name for client in companies' required)
+
+    .field ng-if='facilities'
+      label
+        |Facility Name
+        select(ng-model="lease.facilityId" ng-options='facility.id as facility.name for facility in facilities' required)
+
+    .field
+      label
+        |Lease Start
+        input(type="datetime-local" ng-model="lease.start" to-unix='' ng-model-options='{timezone: "UTC"}' required)
+    .field
+      label
+        |Lease End
+        input(type="datetime-local" ng-model="lease.finish" to-unix='' ng-model-options='{timezone: "UTC"}' required)
+    .field
+      label
+        |Lease Enabled
+        input(type="checkbox" ng-model="lease.isEnabled")
+    .field.right
+      button.button.flat-blue-button(ng-click='save()' ng-disabled="leaseForm.$invalid") Save Lease

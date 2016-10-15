@@ -1,0 +1,9 @@
+.field
+  label
+    | Payment Terms
+    select ng-model="company.data.payment_terms"
+      option value='EFT' EFT
+      option value='Invoice' Invoice
+  label
+    | Tick here to Block Orders
+    input type="checkbox" ng-model="company.data.order_block"

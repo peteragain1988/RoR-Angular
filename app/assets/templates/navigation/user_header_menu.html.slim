@@ -1,0 +1,19 @@
+nav(ng-controller="UserHeaderController")
+  ul
+    li.border-right(ng-click="help()")
+      i.visible.icon-thin-229_question_support_help
+    li.dropdown-toggle(ng-click="toggleUserMenu()" is-open="userMenu.isOpen" dropdown)
+      i.icon-thin-191_user_profile_avatar(ng-class="(Auth.currentUser.profile.sex == 'Male') && 'visible'")
+      i.icon-thin-192_user_profile_avatar_female(ng-class="(Auth.currentUser.profile.sex == 'Female') && 'visible'")
+      a
+        |{{Auth.currentUser.profile.first_name +' '+Auth.currentUser.profile.last_name }}
+      span.caret
+      ul.dropdown-menu role='menu'
+        li
+          a(ui-sref="authenticated.main.employee.me") Edit Profile
+        li
+          a ng-click='showMasqueradeUserList()' Switch User
+        li ng-if='Auth.currentUser.permissions.developer'
+          a ui-sref="authenticated.main.home.debug" Debug
+        li
+          a(ng-click="logout()") Logout

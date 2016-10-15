@@ -1,0 +1,91 @@
+.tabbed-panel
+  form(name='editEmployeeForm')
+    tabset
+      tab heading='Basic Details'
+
+        .field
+          label
+            |First Name
+            input type='text' placeholder='First Name' ng-model='employee.profileAttributes.firstName' required='' autofocus=''
+
+        .field
+          label
+            |Last Name
+            input type='text' placeholder='Last Name' ng-model='employee.profileAttributes.lastName' required=''
+
+        .field
+          label
+            |Email
+            input(type='email' placeholder='Email' ng-model='employee.email' required='' ng-pattern='/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'
+            tooltip='Changing this will also change the email you use to login with. Please ensure that you have access to the email you provide'
+            tooltip-placement='bottom' tooltip-trigger='focus')
+
+        .field
+          label
+            |Gender
+            select ng-model='employee.profileAttributes.sex' required=''
+              option(value='' ng-selected="" ) Select Gender
+              option(value='Male') Male
+              option(value='Female' ng-required='') Female
+
+        .field
+          label
+            |State
+            select ng-model='employee.state'
+              option(value='' ng-selected="true" ) Select State
+              option(value='{{state.value}}' ng-selected='employee.state == state.value' ng-repeat='state in states') {{state.name}}
+
+        .field
+          label
+            |Position
+            input type='text' placeholder='Position' ng-model='employee.position'
+
+        .field
+          label
+            |Cost Center
+            input type='text' placeholder='Cost Center' ng-model='employee.costCenter'
+
+      tab heading='Client Config'
+
+        .field
+          label
+            |Company Name
+            input ng-value='employee.company.friendlyName' disabled='' type='text'
+
+        .field
+          label
+            |Department Name
+            input type='text' ng-value='department.name' disabled=''
+
+        .field
+          label
+            |Role
+            input type='text' ng-value='role.name' disabled=''
+
+        .field
+          label
+            |Class
+            input type='text' ng-value='klass.name' disabled=''
+
+      tab heading='Approval Path'
+
+        .field
+          label
+            |First Approving Manager
+          input type='text' ng-value='firstManager.fullName' disabled=''
+
+        .field
+          label
+            |Second Approving Manager
+          input type='text' ng-value='secondManager.fullName' disabled=''
+
+        .field
+          label
+            |Third Approving Manager
+          input type='text' ng-value='firstManager.fullName' disabled=''
+
+  .bottom-toolbar.display-block
+    hr
+    .toolbar-buttons-right
+      button.button.flat-grey-button(ng-click='showReportModal()') Incorrect Data?
+      button.button.flat-blue-button(ng-click='saveEmployee(employee)' ng-disabled='editEmployeeForm.$invalid') Save

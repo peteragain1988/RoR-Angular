@@ -1,0 +1,44 @@
+.toolbar {
+  @include display(flex);
+  @extend .flex-align-items-center;
+  margin-bottom: 2em;
+}
+
+.bottom-toolbar {
+  @extend .toolbar;
+  margin-bottom: 0 !important;
+  margin-top: 3em;
+}
+
+.toolbar-search {
+  @include flex(1 1 19rem);
+  @extend .field;
+  margin-bottom: 0;
+}
+
+.toolbar-buttons {
+  @include flex(2 1 25em);
+  @include display(flex);
+}
+
+.toolbar-buttons-right {
+  @extend .toolbar-buttons;
+  @include justify-content(flex-end);
+
+  .button + .button, button + button {
+    margin-left: 1em;
+  }
+}
+
+
+.toolbar-title {
+  font-family: $gotham;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.toolbar-title-large {
+  @extend .toolbar-title;
+  font-size: 1.3rem;
+}

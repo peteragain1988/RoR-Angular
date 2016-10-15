@@ -1,0 +1,24 @@
+div.flex-center
+  div.panel.smallish
+    .toolbar
+      .toolbar-title Login
+    form(name="form" novalidate="" autocomplete="on")
+      .nice-alert.invalid(ng-show="invalidLogin") Un-Authorized
+      .field
+        input(type="email" placeholder="Email" name='email' required='' ng-class="inputClass" ng-model="details.email" autofocus='')
+      .field
+        input(type="password" placeholder="Password" name='password' ng-model="details.password" required='' ng-class="inputClass")
+      .field
+        label
+          input type='checkbox' ng-model='mfaToken'
+          |I have an MFA device
+      .field ng-if='mfaToken'
+        input(type='text' ng-model='details.totp' placeholder="TOTP" ng-required='mfaToken')
+    .bottom-toolbar
+      .toolbar-buttons-right
+        button.button.flat-blue-button ng-disabled='loginForm.$invalid ||loading' ng-click='doLogin()'
+          .button-spinner.mla ng-show='loading'
+            .slow-white-spinner-icon ng-class="{false:'ma'}[loading]"
+          span.mra Login
+
+    a style="color: #555; font-size: 0.7em;" ui-sref="guest.password_reset_request" Reset Password

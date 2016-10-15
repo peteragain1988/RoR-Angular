@@ -1,0 +1,18 @@
+.tabbed-panel
+  tabset
+    tab heading='{{::event.event_name}}' ng-repeat='event in data.events track by event.inventory_id'
+	  table
+        thead
+          tr
+            th Event Date
+            th Facility Name
+            th Reference Number
+            th.actions Actions
+
+        tbody(ng-repeat='date in event.dates')
+          tr(ng-repeat="ticket in date.tickets | orderBy:'seat'")
+            td(ng-bind="ticket.event_period")
+            td(ng-bind="ticket.facility_name")
+            td(ng-bind="ticket.reference_number")
+            td.actions
+            	a.button.small-button.flat-blue-button-outline(ng-click="downloadPdf(ticket.id)") Download Pdf

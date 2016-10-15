@@ -1,0 +1,164 @@
+.source-menu-item-list {
+  @extend .panel;
+  padding: $column / 4;
+  @include span-columns(5);
+}
+
+.destination-menu-item-list {
+  @extend .source-menu-item-list;
+  @include shift(2);
+}
+
+.menu-section-list {
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.menu-section {
+  border: 1px solid $table-border-color;
+  padding: $column / 4;
+
+  &:not(:first-of-type) { margin-top: $column / 4 }
+}
+
+
+.menu-section-item-list {
+  @extend .flex-display;
+  @extend .flex-direction-column;
+//  min-height: 5em;
+  border-radius: 9px;
+  border: 2px dashed $table-border-color;
+  padding: $column / 2 $column / 4;
+}
+
+.menu-section-item {
+//  background-color: red;
+  @extend .flex-display;
+  @include flex(1);
+  padding: 1em 0  ;
+
+}
+
+
+.menu-section-item-settings {
+
+}
+
+.menu-section-item-details {
+  @include flex(2);
+//  background-color: blue;
+}
+
+.menu-section-item-buttons {
+//  background-color: gray;
+  @include flex(1);
+  @extend .flex-justify-content-end;
+  @extend .flex-display;
+}
+
+.empty-menu-section-item {
+//  @extend .menu-section-item;
+  @extend .flex-align-self-center;
+  @extend .margin-horziontal-center;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+//Assigned to items whcih can be dragged
+.sortable-item, .sortable-placeholder {
+//  display: block;
+//  min-height: 20px;
+//  margin: 1px 2px 5px 1px;
+//  border-radius: 10px;
+//  background-color: deeppink;
+}
+
+.sortable-item {
+//  border: solid 1px darkgrey;
+//  background-color: #ffffff;
+}
+
+.sortable-handle {
+  cursor: move;
+}
+
+.sortable-placeholder {
+//  border: 1px dashed darkgrey;
+//  box-sizing: border-box;
+  background-color: green;
+  min-height: 2rem;
+}
+
+.sortable-drag {
+  position: absolute;
+  pointer-events: none;
+  opacity: .8;
+  z-index: 9999;
+}
+
+.sortable-hidden {
+  display: none !important;
+}
+
+
+//.red {
+//  @extend .sortable-drag;
+//  background-color: red;
+//}
+
+
+//
+// Add Menu Modal Window Styles
+//
+
+
+.menu-type-selection-boxes {
+  @extend .colored-block-container;
+//  Set font size based off base font size
+  font-size: 0.65rem;
+  border-radius: $radius-amount;
+  margin-bottom: 2rem;
+}
+
+.menu-type-selection-box {
+  @extend .colored-block;
+  input {@extend .invisible-input}
+  &:hover {
+    background-color: #eee;
+  }
+
+  &.selected {
+    border-color: $darkened-main-accent !important;
+    background-color: $main-accent;
+    color: $white !important;
+  }
+
+  i {
+    font-size: 3em;
+    @extend .flex-display;
+  }
+}
+
+.menu-type-selection-box-title {
+  @extend .colored-block-title
+}
+
+
+.menu-data-input {
+  @extend form;
+  @extend .margin-horziontal-center;
+
+  max-width: 36em;
+
+//  overflow: hidden;
+
+
+//  @extend .flex-display;
+//  @extend .flex-align-items-center;
+//  @extend .flex-direction-column;
+}
+
+.menu-name-input-field {
+  @extend .field;
+}

@@ -1,0 +1,8 @@
+.panel
+  form(name="form")
+    legend New Event
+    ng-include src="'events/forms/event.html'"
+
+  hr
+  .modal-footer
+    button.button.flat-blue-button(ng-disabled="form.$invalid" ng-click="save(event)") Create Event

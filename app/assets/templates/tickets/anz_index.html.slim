@@ -1,0 +1,44 @@
+div.anz_title ng-if="data.events"
+  h1 TICKETS AVAILABLE
+
+accordion.anz_content ng-if="data.events"
+  accordion-group.panel(ng-repeat="event in data.events | orderBy:'data.first_event_date':false")
+    accordion-heading
+      .flex-toolbar
+        .title(ng-bind="event.event_name")
+        .actions
+          button.button.flat-grey-button.anz_button View Tickets
+          button.button.flat-blue-button.anz_button(ng-click="downloadAllTickets(event)" ng-if="event") Download All Tickets
+          span tooltip='Downloaded' tooltip-trigger='' tooltip-placement="top" ng-show="event.download_status"
+		    img.check_img src="images/green_check.png" width="40px" height="40px"
+		  span tooltip='NOT Downloaded' tooltip-trigger='' tooltip-placement="top" ng-hide="event.download_status"
+		    img.check_img src="images/cross_check.png" width="40px" height="40px"
+    div ng-repeat='date in event.dates'
+      .top-bar
+        .title
+          span(ng-bind="date.start | amDateFormat: 'D'")
+          sup(ng-bind="date.start | amDateFormat: 'Do' | filterNumeric" )
+          span(ng-bind="date.start | amDateFormat: ' MMMM YYYY'" )
+          .time(ng-bind="date.start | amDateFormat: 'h:mm a'")
+      table
+        thead
+          tr
+            th Suite
+            th Seat
+            th row
+			th Reference Number
+            th.actions Actions
+			
+        tbody
+          tr(ng-repeat="ticket in date.tickets | orderBy:'seat'")
+            td(ng-bind="ticket.facility_name")
+            td(ng-bind="ticket.seat")
+            td(ng-bind="ticket.row")
+            td(ng-bind="ticket.reference_number")
+            td.actions
+              button.button.small-button.flat-blue-button-outline(ng-click="viewTicket(ticket)") View
+              //button.small.flat-blue-button Print
+              //button.small.flat-blue-button Forward
+              
+ 
+h1 ng-bind="data.err_msg" ng-if="data.token_flag"

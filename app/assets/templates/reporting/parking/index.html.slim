@@ -1,0 +1,26 @@
+.panel
+  /.toolbar
+    .title Parking Report
+  table
+    thead
+      tr
+        th Client Name
+        th Suite Name
+        th Requested
+        th Allocated
+        th Date Allocated
+        th Parking Tickets Sent
+        th Actions
+    tbody
+      tr ng-repeat='confirmation in event.confirmed_inventory_options | orderBy:"facility_number"' ng-if='confirmation.selection.parkingSpaces'
+        td ng-bind='confirmation.company_name'
+        td ng-bind='confirmation.facility_name'
+        td ng-bind='confirmation.selection.parkingSpaces'
+        td ng-bind='confirmation.data.parkingSpacesAllocated || 0'
+        td ng-bind='confirmation.data.parkingAllocationDate'
+        td
+          /| {{confirmation.data.parkingTicketsSent ? 'Yes' : 'No' }}
+          input(type="checkbox" ng-model="confirmation.data.parkingTicketsSent" ng-change="updateOption(confirmation)")
+        td
+          button.button.small-button.flat-blue-button-outline ng-click='showModal(confirmation)' ng-hide='confirmation.data.parkingSpacesAllocated' Allocate
+          button.button.small-button.flat-blue-button-outline ng-click='showModal(confirmation)' ng-show='confirmation.data.parkingSpacesAllocated' Edit

@@ -1,0 +1,36 @@
+// Variables
+//------------------------------------------------------
+$tooltip-background-color:               rgba(0,0,0,0.8);
+$tooltip-font-color:                     $white !default;
+
+
+
+  /**
+   * tooltip
+   * --------------------------------------------------
+   */
+
+  .tooltip {
+    opacity: 1;
+    @at-root &-inner {
+      color: $tooltip-font-color;
+      background-color: $tooltip-background-color;
+      font-weight: bold;
+    }
+    &.top &-arrow,
+    &.top-left &-arrow,
+    &.top-right &-arrow {
+      border-top-color: $tooltip-background-color;
+    }
+    &.right &-arrow {
+      border-right-color: $tooltip-background-color;
+    }
+    &.left &-arrow {
+      border-left-color: $tooltip-background-color;
+    }
+    &.bottom &-arrow,
+    &.bottom-left &-arrow,
+    &.bottom-right &-arrow {
+      border-bottom-color: $tooltip-background-color;
+    }
+  }

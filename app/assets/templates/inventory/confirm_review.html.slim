@@ -1,0 +1,23 @@
+#reviewInventoryOptions
+  div.flex-center ng-if='!Options.noSnacks'
+    #steps
+      .step.done(data-desc="Menu") 1
+      .step.done(data-desc="Drinks") 2
+      .step.done(data-desc="Snacks") 3
+      .step.done(data-desc="Parking") 4
+      .step.done(data-desc="Details") 5
+      .step.active(data-desc="Final Review") 6
+
+  div.flex-center ng-if='Options.noSnacks'
+    #steps
+      .step.done(data-desc="Menu") 1
+      .step.done(data-desc="Drinks") 2
+      .step.done(data-desc="Parking") 3
+      .step.done(data-desc="Details") 4
+      .step.active(data-desc="Final Review") 5
+  == Slim::Template.new("#{@pathname.split.first.join('shared','review.html.slim')}").render
+
+  div.toolbar
+    .actions.full
+      button.button.flat-grey-button(ui-sref="authenticated.main.inventory.confirmOptions.details") Previous
+      button.button.flat-blue-button(ng-click="confirmChoices()" ng-bind="confirmButtonText" ng-disabled="confirmButtonDisabled")

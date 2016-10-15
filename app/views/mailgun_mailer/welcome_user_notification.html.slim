@@ -1,0 +1,11 @@
+p Hello
+p A new user profile has been set for you in the EventHub Portal.
+p You can log in here #{{ link_to @login_url, @login_url}}.
+p Your username is this email address and you will need to set up your password before you can use our system.
+  Please create your password and confirm your profile details here at your earliest convenience.
+p
+   b
+     = link_to 'Create password and confirm your account', @confirm_url
+
+p Thankyou.
+p EventHub Team

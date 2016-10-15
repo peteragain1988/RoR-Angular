@@ -1,0 +1,38 @@
+.panel
+  .toolbar
+    .toolbar-search
+      input type='text' ng-model='filterModel' placeholder='Search Users' disabled=''
+    .toolbar-buttons-right
+      button.button.flat-blue-button(ui-sref="authenticated.main.employee.add.new") Add Employee
+  hr
+  .table
+    .table-header
+      .table-row
+        .table-cell Name
+        .table-cell ng-if="Auth.currentUser.permissions['client_admin?']" Manager?
+        .table-cell Department
+        .table-cell Actions
+    .table-content
+      .table-row ng-repeat='employee in data track by employee.id'
+        .table-cell ng-bind='employee.fullName'
+        .table-cell ng-if="Auth.currentUser.permissions['client_admin?']"
+          img src="images/green_check.png" width="20px" ng-if="employee.id==employee.company.managerId"
+          img src="images/cross_check.png" width="20px" ng-if="employee.id!=employee.company.managerId"
+        .table-cell ng-bind='employee.departmentName'
+        .table-cell
+          button.button.small-button.flat-blue-button-outline ng-click='editEmployee(employee.id)' Edit
+
+/table
+/   thead
+/      tr
+/         th Name
+/         th Email
+/         th Department
+/         th.actions Actions
+/   tbody
+/      tr(ng-repeat="user in data")
+/         td(ng-bind="user.profile.first_name + ' ' +user.profile.last_name")
+/         td(ng-bind="user.email")
+/         td(ng-bind="user.department.name")
+/         td.actions
+/            button.small.flat-blue-button(data-ng-click='editEmployee(user.id)') Edit

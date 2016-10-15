@@ -1,0 +1,15 @@
+doctype html
+html(ng-app="thms" class="#{Rails.env}")
+  head
+    title EventHub
+    = stylesheet_link_tag    'application', media: 'screen'
+    = javascript_include_tag 'framework'
+    = javascript_include_tag 'application'
+    /link rel="stylesheet" type="text/css" href="//cloud.typography.com/6796532/662066/css/fonts.css" media='screen'
+    link rel="stylesheet" type="text/css" href="//fast.fonts.net/cssapi/b39de36d-0fcc-4fc9-8481-28f5e2b22072.css" media='screen'
+    /![if lte IE 8] <link href="/shared/css/ie8.css" media="screen" rel="stylesheet" type="text/css"> <![endif]
+    /![if lt IE 8] <link href="/shared/css/ie8.css" media="screen" rel="stylesheet" type="text/css"> <![endif]
+    /![if IE 8] <link href="/shared/css/ie8.css" media="screen" rel="stylesheet" type="text/css"> <![endif]
+    /![if gt IE 8] <link href="/shared/css/ie8.css" media="screen" rel="stylesheet" type="text/css"> <![endif]
+    base href='/'
+  body ui-view=""

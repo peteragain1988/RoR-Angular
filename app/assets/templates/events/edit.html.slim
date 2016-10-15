@@ -1,0 +1,45 @@
+.tabbed-panel
+  form(name="editForm" novalidate)
+    tabset
+      tab(heading="Details")
+        ng-include src="'events/forms/event.html'"
+      tab(heading="Attachments")
+        table
+          thead
+            tr
+              th Name
+              th.actions Actions
+          tbody
+            tr
+              td
+                |Event Tile Image
+              td.actions
+                button.button.small-button.flat-blue-button ng-if='!event.data.tile' ng-click='openFileInput' click-next='input' Add Tile
+                input.hidden type='file' ng-file-select="onFileSelect($files, 'tile')" accept='image/*'
+                button.button.small-button.flat-blue-button ng-if='event.data.tile' ng-click='openUrl(event.data.tile)' View
+                button.button.small-button.flat-blue-button ng-if='event.data.tile' ng-click="removeAttachment('tile')" Remove
+            tr
+              td
+                |Event Agenda
+              td.actions
+                button.button.small-button.flat-blue-button ng-if='!event.data.agenda' ng-click='openFileInput' click-next='input' Add agenda
+                input.hidden type='file' ng-file-select="onFileSelect($files, 'agenda')" accept='application/pdf'
+                button.button.small-button.flat-blue-button ng-if='event.data.agenda' ng-click='openUrl(event.data.agenda)' View
+                button.button.small-button.flat-blue-button ng-if='event.data.agenda' ng-click="removeAttachment('agenda')" Remove
+            tr
+              td
+                |Event Menu
+              td.actions
+                button.button.small-button.flat-blue-button ng-if='!event.data.menu' ng-click='openFileInput' click-next='input' Add menu
+                input.hidden type='file' ng-file-select="onFileSelect($files, 'menu')" accept='application/pdf'
+                button.button.small-button.flat-blue-button ng-if='event.data.menu' ng-click='openUrl(event.data.menu)' View
+                button.button.small-button.flat-blue-button ng-if='event.data.menu' ng-click="removeAttachment('menu')" Remove
+
+      tab(heading="Event Control")
+        == Slim::Template.new("#{@pathname.split.first.join('forms','control.html.slim')}").render
+  .modal-footer
+    hr
+    button.button.flat-blue-button.vertical-align-items(ng-disabled="editForm.$invalid || loading" ng-click="save(event, $files)")
+      .button-spinner.mla ng-show='loading'
+        .slow-white-spinner-icon
+      span.mra ng-bind='buttonText' ng-class="{false:'ma'}[loading]"

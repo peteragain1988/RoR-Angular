@@ -1,0 +1,117 @@
+
+.masquerade {
+  .title { font-size: 1.6em }
+}
+
+div.employees-table {
+  overflow: scroll;
+  height: 600px;
+
+  div.record {
+    @include display(flex);
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 0.7em;
+    margin-bottom: 1em;
+
+    &:last-of-type { border-bottom: none }
+
+    & > .details {
+      @include flex(3);
+      line-height: 1.3em;
+
+      & > .name {
+        font-weight: bold;
+        color: #444;
+      }
+
+      & > .company {
+
+      }
+
+      & > .email {
+        font-size: 0.7em;
+        font-weight: lighter;
+        color: #666;
+      }
+    }
+
+    & > .actions {
+      @include flex(1);
+      @include display(flex);
+      @include align-items(center);
+
+      font-size: 0.8em;
+      button {
+//        @include display(flex);
+//        @include align-items(center);
+        i { font-size: 1.7em }
+      }
+    }
+  }
+}
+
+
+td.actions {
+  button {
+    margin-left: 0.8em;
+    margin-bottom: 0.4em;
+
+  }
+
+  &.block button {
+    display: block;
+  }
+}
+
+div.flex-toolbar {
+  button + button {
+    margin-left: 0.8em;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+
+#masqueradeToolbar {
+  @include background-image(
+          linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%,
+                  rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent));
+
+  @include animation(animate-stripes 0.6s linear infinite);
+  @include transition(top 0.2s ease-in-out);
+
+  &.ng-hide {
+    top: -$masquerade-bar-height;
+  }
+
+  &.ng-hide-add,
+  &.ng-hide-remove {
+    display: block !important;
+  }
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #f90;
+  color: white;
+  font-weight: bold;
+  padding: 1em 0;
+  height: $masquerade-bar-height;
+  z-index: 99999;
+  & .tooltip { z-index: 99999 }
+  a {
+    text-shadow: 0px 0px 7px rgba(190,190,190,0.3);
+  }
+}
+
+#masqueradeToolbar + #content-outer { margin-top: $masquerade-bar-height; @include transition(margin 0.2s ease-in-out) }
+#masqueradeToolbar.ng-hide + #content-outer { margin-top: 0 }

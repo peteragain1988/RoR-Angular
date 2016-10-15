@@ -1,0 +1,11 @@
+div.panel.smallish
+  form(name='confirmEmployeeForm')
+    fieldset
+      legend Password
+      .field
+        input type='password' placeholder='' ng-model='password' required='' autofocus=''
+      legend Confirm password
+      .field
+        input type='password' placeholder='' ng-model='confirmPassword' required='' autofocus=''
+      .field.right
+        button.button.flat-blue-button(ng-click='confirmEmployee(password)' data-ng-disabled='confirmEmployeeForm.$invalid || confirmPassword != password') Confirm User

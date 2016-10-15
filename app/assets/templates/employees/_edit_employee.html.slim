@@ -1,0 +1,96 @@
+.tabbed-panel
+  .toolbar
+    .toolbar-title-large ng-if='employee.id' Edit Employee
+    .toolbar-title-large ng-if='!employee.id' New Employee
+  form(name='newEmployeeForm')
+    tabset
+      tab heading='Basic Details'
+
+        .field
+          label
+            |First Name
+            input type='text' placeholder='First Name' ng-model='employee.profileAttributes.firstName' required='' autofocus=''
+        .field
+          label
+            |Last Name
+            input type='text' placeholder='Last Name' ng-model='employee.profileAttributes.lastName' required=''
+        .field
+          label
+            |Email
+            input type='text' placeholder='Email' ng-model='employee.email' required='' ng-pattern='/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'
+
+        .field
+          label
+            |Sex
+            select ng-model='employee.profileAttributes.sex' required=''
+              option(value='Male') Male
+              option(value='Female') Female
+
+        .field
+          label
+            |State
+            select ng-model='employee.state'
+              option(value='{{state.value}}' ng-selected='employee.state == state.value' data-ng-repeat='state in states') {{state.name}}
+
+        .field ng-if="Auth.currentUser.permissions['venue_admin?']"
+          label
+            |Position
+            input type='text' placeholder='Position' ng-model='employee.position'
+
+        .field ng-if="Auth.currentUser.permissions['venue_admin?']"
+          label
+            |Cost Center
+            input type='text' placeholder='Cost Center' ng-model='employee.costCenter'
+
+      tab heading='Client Config'
+
+        .field ng-if="Auth.currentUser.permissions['venue_admin?']"
+          label
+            |Employee Class
+            select ng-model='employee.profileAttributes.klass'
+              option(value='{{class.value}}' ng-selected='employee.profileAttributes.klass == class.value' data-ng-repeat='class in classes') {{class.name}}
+
+        .field ng-if="Auth.currentUser.permissions['venue_admin?']"
+          label
+            |Department
+            select ng-model='employee.departmentId'
+              option(value='{{department.id}}' ng-selected='employee.departmentId == department.id' data-ng-repeat='department in departments') {{department.name}}
+
+        .field 
+          label
+            |Permission Set
+            select ng-model='employee.permission' required=''
+              option(value='{{role.value}}' ng-selected='employee.permission == role.value' data-ng-repeat='role in roles') {{role.name}}
+
+        .field ng-if="Auth.currentUser.permissions['venue_admin?']"
+          label
+            |BI Access
+            input type='checkbox' ng-model='employee.biAccess'
+
+        .field ng-if="employee.id"
+          label
+            |Ticked if user can login?
+            input type='checkbox' ng-model='employee.canLogin'
+
+      tab heading='Approval Path' ng-if="Auth.currentUser.permissions['venue_admin?']"
+
+        .field
+          label
+            |First Manager
+            select ng-model='employee.firstManager'
+              option(value='{{manager.id}}' ng-selected='employee.firstManager == manager.id' data-ng-repeat='manager in managers') {{manager.profileAttributes.firstName}} {{manager.profileAttributes.lastName}}
+
+        .field
+          label
+            |Second Manager
+            select ng-model='employee.secondManager'
+              option(value='{{manager.id}}' ng-selected='employee.secondManager == manager.id' data-ng-repeat='manager in managers') {{manager.profileAttributes.firstName}} {{manager.profileAttributes.lastName}}
+
+        .field
+          label
+            |Third Manager
+            select ng-model='employee.thirdManager'
+              option(value='{{manager.id}}' ng-selected='employee.thirdManager == manager.id' data-ng-repeat='manager in managers') {{manager.profileAttributes.firstName}} {{manager.profileAttributes.lastName}}
+
+    button.button.flat-blue-button(ng-click='saveEmployee(employee)' data-ng-disabled='newEmployeeForm.$invalid' ng-if='!savingEmployee') Save Employee
+    button.button.flat-blue-button(disabled='' ng-if='savingEmployee') Saving Employee...

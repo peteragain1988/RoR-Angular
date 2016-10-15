@@ -1,0 +1,55 @@
+.panel
+  div.toolbar
+    .filters
+      .field.search
+        input(type="text" placeholder="Search" ng-model="filterModel.data.name" autofocus)
+    .actions
+      button.button.flat-blue-button(ng-click="newEvent()")Add Event
+  hr
+  tabset
+    tab heading='Open'
+      table
+        thead
+          tr
+            th Name
+            th Type
+            th First Event Date
+            th Time Until Event
+            th Status
+            th.actions Actions
+        tbody
+          tr(ng-repeat="event in data | orderBy:'data.first_event_date':false | filter:filterModel:strict")
+            td(ng-bind="event.data.name")
+            td(ng-bind="event.data.event_type")
+            td
+              .time(ng-bind="event.data.first_event_date | amDateFormat: 'h:mm a'")
+              span(ng-bind="event.data.first_event_date | amDateFormat: 'dddd D'")
+              sup(ng-bind="event.data.first_event_date | amDateFormat: 'Do' | filterNumeric" )
+              span(ng-bind="event.data.first_event_date | amDateFormat: ' of MMMM YYYY'" )
+            td(am-time-ago="event.data.first_event_date")
+            td(ng-bind="event.data.status")
+            td.actions
+              button.button.small-button.flat-blue-button-outline(ui-sref="authenticated.main.event.view({event_id: event.data.id})") View
+    //button.small.flat-blue-button(ui-sref="authenticated.main.event.confirmations({id: event.data.id})") Event Confirmations
+                     //i.icon-thin-044_visability_view_watch_eye
+                     //span
+    //button.small.flat-blue-button
+                     i.icon-thin-253_x_remove_delete_close_exit
+                     //span Delete
+
+    /pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"
+    tab heading='Closed' select='loadClosedEvents()'
+      .spinner ng-show='loading'
+        .spinner-icon
+      table ng-hide='loading'
+        thead
+          tr
+            th Name
+            th Type
+            th.actions Actions
+        tbody
+          tr(ng-repeat="event in closed_events | orderBy:'data.first_event_date':false | filter:filterModel:strict")
+            td(ng-bind="event.name")
+            td(ng-bind="event.event_type")
+            td.actions
+              button.button.small-button.flat-blue-button-outline(ui-sref="authenticated.main.event.view({event_id: event.id})") View

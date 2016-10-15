@@ -1,0 +1,60 @@
+.tabbed-panel
+  form(name="editForm" novalidate)
+    tabset
+      tab(heading="Date")
+        .field
+          label
+            |Event Start
+            input(type="datetime-local" ng-model="date.data.start" to-unix='' ng-model-options='{timezone: "UTC"}' required)
+        .field
+          label
+            |Event Finish
+            input(type="datetime-local" ng-model="date.data.finish" to-unix='' ng-model-options='{timezone: "UTC"}' required)
+        .field
+          label
+            |Event Status
+            select(ng-model='date.data.status')
+              option(value="") Select Event Status
+              /option(value="Coming Soon") Coming Soon
+              option(value="Open") Open
+              /option(value="Closing Soon") Closing Soon
+              option(value="Closed") Closed
+      tab(heading="Attachments")
+        table
+          thead
+            tr
+              th Name
+              th.actions Actions
+          tbody
+            tr
+              td
+                |Event Tile Image
+              td.actions
+                button.button.small-button.flat-blue-button ng-if='!date.data.tile' ng-click='openFileInput' click-next='input' Add Tile
+                input.hidden type='file' ng-file-select="onFileSelect($files, 'tile')" accept='image/*'
+                button.button.small-button.flat-blue-button ng-if='date.data.tile' ng-click='openUrl(date.data.tile)' View
+                button.button.small-button.flat-blue-button ng-if='date.data.tile' ng-click="removeAttachment('tile')" Remove
+            tr
+              td
+                |Event Agenda
+              td.actions
+                button.button.small-button.flat-blue-button ng-if='!date.data.agenda' ng-click='openFileInput' click-next='input' Add agenda
+                input.hidden type='file' ng-file-select="onFileSelect($files, 'agenda')" accept='application/pdf'
+                button.button.small-button.flat-blue-button ng-if='date.data.agenda' ng-click='openUrl(date.data.agenda)' View
+                button.button.small-button.flat-blue-button ng-if='date.data.agenda' ng-click="removeAttachment('agenda')" Remove
+            tr
+              td
+                |Event Menu
+              td.actions
+                button.button.small-button.flat-blue-button ng-if='!date.data.menu' ng-click='openFileInput' click-next='input' Add menu
+                input.hidden type='file' ng-file-select="onFileSelect($files, 'menu')" accept='application/pdf'
+                button.button.small-button.flat-blue-button ng-if='date.data.menu' ng-click='openUrl(date.data.menu)' View
+                button.button.small-button.flat-blue-button ng-if='date.data.menu' ng-click="removeAttachment('menu')" Remove
+
+      /tab(heading="Pricelines")
+      tab(heading="Ticketing")
+        == Slim::Template.new("#{Rails.root.join 'app','assets','templates','events','forms', 'ticketing.html.slim'}").render
+
+  hr
+  .modal-footer
+    button.button.flat-blue-button ng-disabled='editForm.$invalid' ng-click='save(event)' Save Date

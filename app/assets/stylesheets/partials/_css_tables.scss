@@ -1,0 +1,55 @@
+$whitney: "Whitney SSm A", "Whitney SSm B", sans-serif;
+$table-header-bg: #efefef;
+$table-header-color: #555;
+$table-border-color: #ddd;
+
+.table {
+  font-size: 0.8em;
+  font-family: $whitney;
+}
+
+.table-header, .table-footer {
+  background-color: $table-header-bg;
+  color: $table-header-color;
+  font-weight: 500;
+
+  .table-row {
+    border-bottom: 1px solid $table-border-color !important;
+    border-top: 1px solid $table-border-color !important;;
+  }
+
+  .table-cell {
+    @include pad(0.4em);
+
+    border-right: 1px solid $table-border-color;
+    &:last-of-type {
+      border-right: 0;
+    }
+  }
+
+}
+
+.table-row {
+  @include display(flex);
+  border: 1px solid $table-border-color;
+  border-bottom: 0;
+  &:first-of-type { border-top: 0 }
+
+  &:last-of-type {border-bottom: 1px solid $table-border-color}
+  
+  &.selected {
+    background-color: rgba($green, 0.1);
+  }
+}
+
+.table-cell {
+  @include flex(1);
+  @include align-self(center);
+  @include pad(em(10));
+  color: #333;
+
+  &.checkbox {
+    @include flex(0);
+    @include flex-basis(2.4em);
+  }
+}

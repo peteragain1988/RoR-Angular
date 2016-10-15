@@ -1,0 +1,49 @@
+.menu-display-panel {
+  @extend .panel;
+  @extend .flex-display;
+  @extend .flex-direction-column;
+}
+
+.menu-display-title {
+  @extend .flex-display;
+  @extend .flex-justify-content-center;
+  @extend .boldish-title;
+  font-size: 2em;
+}
+
+.menu-display-price {
+  @extend .menu-display-title;
+  font-size: 1.7em;
+}
+
+.menu-display-sections-list {
+  @extend .flex-display;
+  @extend .flex-direction-column;
+}
+
+.menu-display-section {
+  @include flex(1);
+
+  &:not(:first-of-type) {
+    margin-top: 1em;
+  }
+}
+
+.menu-display-section-title {
+  @extend .boldish-title;
+  line-height: 2em;
+
+}
+
+.menu-display-section-items-list {}
+
+.menu-display-section-item {}
+
+.menu-display-section-item-title {
+  line-height: 1.3;
+  font-weight: 300;
+  color: $black;
+}
+
+.menu-display-section-item-description {}
+

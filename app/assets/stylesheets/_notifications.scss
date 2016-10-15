@@ -1,0 +1,45 @@
+@import "partials/css_extend_helpers";
+.notification-event-select-container {
+  @extend .flex-wrap;
+  @extend .flex-display;
+  @extend .flex-justify-content-start;
+  @extend .flex-align-content-start;
+  font-size: 0.9rem;
+  border-radius: $radius-amount;
+  margin-bottom: 2rem;
+}
+
+.notification-event-select-block {
+  @include flex(1 1 16em);
+  @extend .flex-display;
+  @extend .flex-justify-content-center;
+  @extend .flex-align-items-center;
+  cursor: pointer;
+  word-break: break-word;
+
+  border: 1px solid #eee;
+  padding: 3em;
+  color: #444;
+
+  &:hover {
+    background-color: #eee;
+  }
+
+  &.selected {
+    border-color: $darkened-main-accent !important;
+    background-color: $main-accent;
+    color: $white !important;
+  }
+
+  i {
+    font-size: 3em;
+    @extend .flex-display;
+  }
+
+}
+
+.notification-event-select-block-title {
+  font-size: 1.2em;
+  font-weight: 500;
+  text-transform: uppercase;
+}

@@ -1,0 +1,7 @@
+.panel ng-if='!confirmation.data.oysterSpecial'
+  .title Oyster & Champagne Special - $25pp
+  .field.right
+    button.flat-blue-button ng-click='confirmSpecialOffer()' tooltip='You are able to confirm specials at any time. Even after your standard order is closed.' Confirm
+
+.panel ng-if='confirmation.data.oysterSpecial'
+  .title You have already confirmed this special

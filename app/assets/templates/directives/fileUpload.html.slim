@@ -1,0 +1,7 @@
+input type='file' ng-file-select="onFileSelect($files)" accept='{{accept()}}'
+i.icon-thin-068_file_document_pdf_adobe_acrobat
+span ng-bind='emptyTitle()' ng-click='openUpFileDialog()'
+a ng-click='remove()' &times;
+
+button.small.grey ng-hide='event.data.tile' ng-click='openUpFileDialog()' Add Tile
+input type='file' ng-file-select="onFileSelect($files, 'tile')" accept='{{accept()}}'

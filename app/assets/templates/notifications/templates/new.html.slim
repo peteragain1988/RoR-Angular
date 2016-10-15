@@ -1,0 +1,102 @@
+.mail-template-panel
+  .toolbar
+    .toolbar-title-large ng-if='!template.id' Create New Mail Template
+    .toolbar-title-large ng-if='template.id' Edit Mail Template
+  hr
+  form name='form'
+    .field
+      label
+        |Name
+        input(type='text' placeholder='Template Name' ng-model='template.name' required='' tooltip="A name used to make it easy to keep track of your mail templates" tooltip-placement='right' tooltip-trigger='focus' autofocus )
+    .field
+      label
+        |Subject
+        input type='text' placeholder='Subject' ng-model='template.subject' required='' tooltip="Subject of the email, you can inject data here" tooltip-placement='right' tooltip-trigger='focus'
+    .field
+      label
+        |Reply To
+        input type='text' placeholder='Reply To' ng-model='template.replyTo' tooltip="Address that mail replies will go to." tooltip-placement='right' tooltip-trigger='focus'
+    .field
+      label
+        |Bcc
+        input type='text' placeholder='Bcc' ng-model='template.bcc' tooltip="BCC field in the email, comma separated for multiple emails" tooltip-placement='right' tooltip-trigger='focus'
+
+    .mail-template-body ng-model="template.body" medium-editor='' options='{"cleanPastedHTML":true,"buttons": ["bold", "italic", "underline", "anchor", "header1", "header2", "quote", "orderedlist", "unorderedlist"]}' required=''
+
+.mail-template-data-panel
+  .toolbar
+    .toolbar-title Available Data
+  hr
+  p.alert-info ng-non-bindable=''
+    |This data will be available to use within the template and the subject. Simply wrap the field with {{ }}.
+    br
+    br
+    | i.e: {{event_name}}, {{company_name}}
+    br
+    br
+    a href='https://github.com/Shopify/liquid/wiki/Liquid-for-Designers' target='_blank' Click here for more information on the syntax
+
+
+  .table ng-non-bindable=''
+    .table-header
+      .table-row
+        .table-cell Event
+        .table-cell
+    .table-content
+      .table-row
+        .table-cell Name
+        .table-cell
+          |{{event_name}}
+      .table-row
+        .table-cell Promoter
+        .table-cell
+          |{{event_promoter}}
+      .table-row
+        .table-cell Event Dates
+        .table-cell event_dates (Array)
+    .table-header
+      .table-row
+        .table-cell Event Date
+        .table-cell
+    .table-content
+      .table-row
+        .table-cell Start Date
+        .table-cell
+          |{{event_start}}
+      .table-row
+        .table-cell Finish Date
+        .table-cell
+          |{{event_finish}}
+    .table-header
+      .table-row
+        .table-cell Company
+        .table-cell
+    .table-contents
+      .table-row
+        .table-cell Name
+        .table-cell
+          |{{company_name}}
+    .table-header
+      .table-row
+        .table-cell Recipients
+        .table-cell
+    .table-contents
+      .table-row
+        .table-cell Email
+        .table-cell
+          |{{recipient.email}}
+      .table-row
+        .table-cell Firstname
+        .table-cell
+          |{{recipient.first_name}}
+      .table-row
+        .table-cell Lastname
+        .table-cell
+          |{{recipient.last_name}
+
+  .bottom-toolbar
+    .toolbar-buttons
+      button.button.flat-green-button.full-size-button ng-click='saveTemplate()' ng-disabled='form.$invalid || loading'
+        .button-spinner.mla ng-show='loading'
+          .slow-white-spinner-icon
+        span.mra ng-class="{false:'ma'}[loading]" Save Mail Template

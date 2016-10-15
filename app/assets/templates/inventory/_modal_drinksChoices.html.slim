@@ -1,0 +1,14 @@
+div.panel
+   .top-bar
+      .title Beverages Package
+
+   .field
+      label
+         input(type='checkbox' ng-model='Options.selectedOptions.selection.foodBeveragePairing')
+         |Include Wine & Beer pairings to compliment menu selection
+   .field ng-if='!Options.selectedOptions.selection.menu.doesntHaveDessertDrinkPackage'
+      label
+         input(type='checkbox' ng-model='Options.selectedOptions.selection.dessertWinePairing')
+         |Include Baileys of Glenrowan Fortified Founder Series wines with dessert
+   .field.right
+      button.button.flat-blue-button(ng-click="next()") Next
